@@ -12,7 +12,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //TCP服务器初始化
         EchoClient echoClient = new EchoClient("127.0.0.1",28015);
         try {
             echoClient.start();
