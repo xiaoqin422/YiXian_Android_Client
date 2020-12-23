@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">YiXian_Client</string>
+    <string name="login">游戏登录</string>
+    <string name="register">游戏注册</string>
+    <string name="pw_forget">忘记密码</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="gm_login">游戏登录</string>
+    <string name="sure_password">确认密码</string>
+    <string name="verification_code">验证码</string>
+    <string name="confirm">确认</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

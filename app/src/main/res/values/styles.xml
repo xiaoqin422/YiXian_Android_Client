@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="XY">XY</style>
+    <style name="XY.TextInputLayout" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/black</item>
+        <item name="hintTextColor">@color/black</item>
+    </style>
+    <style name="XY.TextInputLayout.TextInputEditText" >
+        <item name="android:textCursorDrawable">@color/black</item>
+    </style>
+</resources>
