@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.xianyu.yixian_client.Login.LoginViewModel;
 import com.xianyu.yixian_client.Model.Core;
+import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.RegisterFragmentBinding;
 
@@ -39,6 +41,19 @@ public class Register_Fragment extends Fragment  {
         binding = RegisterFragmentBinding.inflate(inflater,container,false);
         TextInputEditText userName_UI = binding.getRoot().findViewById(R.id.username);
         TextInputEditText passWord_UI = binding.getRoot().findViewById(R.id.password);
+        Core.liveUser.observe(getViewLifecycleOwner(), new Observer<User>() {
+            @Override
+            public void onChanged(User user) {
+                String ui_userName = userName_UI.getText().toString();
+                String ui_password = passWord_UI.getText().toString();
+                if(!ui_userName.equals(user.getUserName())){
+                    userName_UI.setText(user.getUserName());
+                }
+                if(!ui_password.equals(user.getPasswords())){
+                    passWord_UI.setText(user.getPasswords());
+                }
+            }
+        });
         userName_UI.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -72,7 +87,7 @@ public class Register_Fragment extends Fragment  {
             @Override
             public void afterTextChanged(Editable s) {
                 if(!s.toString().equals(Core.liveUser.getValue().getUserName())){
-                    Core.liveUser.getValue().setPassword(s.toString());
+                    Core.liveUser.getValue().setPasswords(s.toString());
                     Core.liveUser.postValue(Core.liveUser.getValue());
                 }
             }

@@ -1,6 +1,7 @@
 package com.xianyu.yixian_client.Model.Tcp;
 
 import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
@@ -19,7 +20,8 @@ import java.util.Date;
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
-public class LongToDateDeserializer {
+public class LongToDateDeserializer implements JsonDeserializer<Date> {
+    @Override
     public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         return new java.util.Date(json.getAsJsonPrimitive().getAsLong());
     }

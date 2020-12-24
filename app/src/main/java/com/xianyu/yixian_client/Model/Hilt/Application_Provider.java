@@ -31,14 +31,14 @@ public class Application_Provider {
     //数据库 不需要Singleton，因为Factory是Singleton
     @Provides
     public DataBase_Room provideDB_Room(@ApplicationContext Context context){
-        return Room.inMemoryDatabaseBuilder(context, DataBase_Room.class).build();
+        return Room.databaseBuilder(context, DataBase_Room.class,"xianyu.db").build();
     }
     @Provides
     public UserDao UserDaoProvide(DataBase_Room db){
         return db.userDao();
     }
 
-    /* 因为Hilt还不能很好的支持任一类注入子段,暂时先不注入了.
+    /* 因为Hilt还不能很方便的支持任一类注入子段,暂时先不注入了.
     //ReceiveEvent注入
 
     @Qualifier

@@ -38,15 +38,8 @@ public class User
     private int create_num=0;
     private int money = 0;
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    private String password;
+    private String passwords;
     private String information;
     private int battle_Count;//战斗场次
     private int exp;//经验
@@ -56,7 +49,9 @@ public class User
     private Enums.User_Active active = Enums.User_Active.Leisure;//玩家当前游戏状态
     private int kills;//击杀数
     private int deaths;//死亡数
+    @Ignore
     private Date skillCards_Date;//技能卡版本
+    @Ignore
     private Date registration_date;//注册时间
     public long qQ = -1;
     @Embedded
@@ -65,6 +60,14 @@ public class User
     private HashMap<String, Simple_SkillCard> repository_SkillCards = new HashMap<String, Simple_SkillCard>();//技能卡仓库
     @Ignore
     private HashMap<String, Simple_SkillCard> battle_SkillCards = new HashMap<String, Simple_SkillCard>();//备战的技能卡
+    public String getPasswords() {
+        return passwords;
+    }
+
+    public void setPasswords(String passwords) {
+        this.passwords = passwords;
+    }
+
     public MsgToken getMsgToken() {
         return msgToken;
     }
@@ -165,15 +168,16 @@ public class User
         this.userName = userName;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
-                "userName=" + userName +
-                ", qQ=" + qQ +
-                ", name='" + nickName + '\'' +
+                "userName='" + userName + '\'' +
+                ", nickName='" + nickName + '\'' +
                 ", upgrade_num=" + upgrade_num +
                 ", create_num=" + create_num +
                 ", money=" + money +
+                ", passwords='" + passwords + '\'' +
                 ", information='" + information + '\'' +
                 ", battle_Count=" + battle_Count +
                 ", exp=" + exp +
@@ -185,6 +189,8 @@ public class User
                 ", deaths=" + deaths +
                 ", skillCards_Date=" + skillCards_Date +
                 ", registration_date=" + registration_date +
+                ", qQ=" + qQ +
+                ", msgToken=" + msgToken +
                 ", repository_SkillCards=" + repository_SkillCards +
                 ", battle_SkillCards=" + battle_SkillCards +
                 '}';

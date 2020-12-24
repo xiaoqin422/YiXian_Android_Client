@@ -16,4 +16,6 @@ import com.xianyu.yixian_client.Model.Room.Entity.User;
  */
 interface IRemoteRepository {
     public void ValidUser(User user);
+    public void RegisterUser(User user);
+    public void ChangeUser(User user,String verificationCode);
 }

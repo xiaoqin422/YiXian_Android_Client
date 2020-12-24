@@ -46,8 +46,8 @@ public class Login_Fragment extends Fragment {
                 if(!ui_userName.equals(user.getUserName())){
                     userName_UI.setText(user.getUserName());
                 }
-                if(!ui_password.equals(user.getPassword())){
-                    passWord_UI.setText(user.getPassword());
+                if(!ui_password.equals(user.getPasswords())){
+                    passWord_UI.setText(user.getPasswords());
                 }
             }
         });
@@ -84,7 +84,7 @@ public class Login_Fragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 if(!s.toString().equals(Core.liveUser.getValue().getUserName())){
-                    Core.liveUser.getValue().setPassword(s.toString());
+                    Core.liveUser.getValue().setPasswords(s.toString());
                     Core.liveUser.postValue(Core.liveUser.getValue());
                 }
             }

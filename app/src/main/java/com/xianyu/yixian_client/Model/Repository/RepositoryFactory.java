@@ -43,17 +43,39 @@ public class RepositoryFactory implements IRemoteRepository,ILocalRepository{
         remote = new RemoteRepository();
     }
 
-    public void addUser(User user) {
-        RxNoneOne(arg -> local.addUser(arg), user);
+    public void insertUser(User user) {
+        RxNoneOne(arg -> local.insertUser(arg), user);
     }
 
     public Single<List<User>> queryUsers() {
         return local.queryUsers();
     }
 
+    @Override
+    public void deleteUser(User arg) {
+        RxNoneOne(user -> local.deleteUser(user), arg);
+    }
+    @Override
+    public void clearAllUser(User arg) {
+        RxNoneOne(user -> local.clearAllUser(user), arg);
+    }
+    @Override
+    public void updateUser(User user) {
+        RxNoneOne(arg -> local.insertUser(arg), user);
+    }
 
     public void ValidUser(User user) {
         RxNoneOne(arg -> remote.ValidUser(arg), user);
+    }
+
+    @Override
+    public void RegisterUser(User user) {
+        remote.RegisterUser(user);
+    }
+
+    @Override
+    public void ChangeUser(User user,String verificationCode) {
+        remote.ChangeUser(user,verificationCode);
     }
 
     @SuppressLint("CheckResult")
@@ -68,7 +90,7 @@ public class RepositoryFactory implements IRemoteRepository,ILocalRepository{
                 .subscribe(new Consumer<T>() {
                     @Override
                     public void accept(T arg) throws Exception {
-                        functions.accept(arg);
+                            functions.accept(arg);
                     }
                 });
     }

@@ -54,4 +54,15 @@ public class RemoteRepository implements IRemoteRepository{
     public void ValidUser(User user) {
         SendMessage("用户登录",user);
     }
+
+    @Override
+    public void RegisterUser(User user) {
+        SendMessage("用户注册",user);
+    }
+
+    @Override
+    public void ChangeUser(User user, String verificationCode) {
+        SendMessage("修改密码#" + verificationCode,user);
+    }
+
 }

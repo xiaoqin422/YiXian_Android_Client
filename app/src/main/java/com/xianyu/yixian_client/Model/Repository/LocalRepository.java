@@ -25,12 +25,27 @@ public class LocalRepository implements ILocalRepository{
         this.db = db;
     }
 
-    public void addUser(User arg) {
-        db.userDao().insert(arg);
+    public void insertUser(User user) {
+        db.userDao().insert(user);
     }
 
     public Single<List<User>> queryUsers() {
         return db.userDao().queryUsers();
+    }
+
+    @Override
+    public void deleteUser(User user) {
+        db.userDao().deleteUser(user);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        db.userDao().updateUser(user);
+    }
+
+    @Override
+    public void clearAllUser(User user) {
+       //**
     }
 
 

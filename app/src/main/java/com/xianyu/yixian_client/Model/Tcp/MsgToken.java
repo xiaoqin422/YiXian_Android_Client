@@ -14,27 +14,28 @@ package com.xianyu.yixian_client.Model.Tcp;
  */
 public class MsgToken {
 
-    public String getAccount() {
-        return account;
+    String username_token;
+    String password_token;
+
+
+    public MsgToken(String username_token, String password_token) {
+        this.username_token = username_token;
+        this.password_token = password_token;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public String getUsername_token() {
+        return username_token;
     }
 
-    public String getPasswords() {
-        return passwords;
+    public void setUsername_token(String username_token) {
+        this.username_token = username_token;
     }
 
-    public void setPasswords(String password) {
-        this.passwords = password;
+    public String getPassword_token() {
+        return password_token;
     }
 
-    String account;
-    String passwords;
-
-    public MsgToken(String account, String passwords) {
-        this.account = account;
-        this.passwords = passwords;
+    public void setPassword_token(String password_token) {
+        this.password_token = password_token;
     }
 }

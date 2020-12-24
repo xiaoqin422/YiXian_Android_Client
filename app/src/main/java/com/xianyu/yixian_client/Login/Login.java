@@ -42,8 +42,6 @@ public class Login extends AppCompatActivity {
         Init();
     }
     private void Init(){
-        //注册消息事件
-        Core.information_ReceiveEvent.add(new Login_XY(this));
         //Service初始化
         Intent intentOne = new Intent(this, LoginService.class);
         startService(intentOne);
@@ -62,6 +60,8 @@ public class Login extends AppCompatActivity {
         }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe(loginViewModel -> {
             Log.d(Tag.Information,"监察者开始调用");
             viewModel = loginViewModel;
+            //注册消息事件
+            Core.information_ReceiveEvent.add(new LoginReceive(this,viewModel));
             //fragment绑定初始化
             paper = findViewById(R.id.paper);
             paper.setPageTransformer(new DepthPageTransformer());
@@ -109,13 +109,18 @@ public class Login extends AppCompatActivity {
                         if(users.isEmpty()){
                             User user = new User();
                             user.setUserName("落花无痕浅流淌");
+                            user.setInformation("相思请放下,再醒来时折花.");
                             Core.liveUser.setValue(user);
-                            viewModel.addUser(Core.liveUser.getValue());
                             Log.i(Tag.Room, "创建新用户\n"+Core.liveUser.toString());
                         }
                         else {
                             Core.liveUser.setValue(users.get(0));
                             Log.i(Tag.Room,"查询成功\n"+Core.liveUser.toString());
+                            if(users.size()>=10){
+                                for (User item:users) {
+                                    viewModel.deleteUser(item);
+                                }
+                            }
                         }
                     }, throwable -> {
                         Log.e(Tag.Room, "获取异常");
@@ -136,13 +141,13 @@ public class Login extends AppCompatActivity {
     }
 
     public void Login_Click() {
-        viewModel.repositoryFactory.ValidUser(Core.liveUser.getValue());
+        viewModel.ValidUser(Core.liveUser.getValue());
     }
 
     public void Register_Click() {
-
+        viewModel.RegisterUser(Core.liveUser.getValue());
     }
     public void Forget_Click() {
-
+        viewModel.ChangeUser(Core.liveUser.getValue());
     }
 }

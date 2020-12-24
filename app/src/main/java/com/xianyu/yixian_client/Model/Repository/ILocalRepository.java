@@ -19,8 +19,13 @@ import io.reactivex.Single;
  * @Version: 1.0
  */
 interface ILocalRepository {
-    public void addUser(User arg);
+    public void insertUser(User user);
 
     public Single<List<User>> queryUsers();
 
+    public void deleteUser(User user);
+
+    public void updateUser(User user);
+
+    public void clearAllUser(User user);
 }

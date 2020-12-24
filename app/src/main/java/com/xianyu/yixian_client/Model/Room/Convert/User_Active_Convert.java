@@ -32,6 +32,8 @@ public class User_Active_Convert {
     public static String EnumstoString(Enums.User_Active value){
         switch (value){
             case Leisure:return "Leisure";
+            case Ready:return "Ready";
+            case Queue:return "Queue";
             case Gaming:return "Gaming";
             default:break;
         }
@@ -41,6 +43,8 @@ public class User_Active_Convert {
     public static Enums.User_Active StringtoEnums(String value){
         switch (value){
             case "Leisure":return Enums.User_Active.Leisure;
+            case "Ready":return Enums.User_Active.Ready;
+            case "Queue":return Enums.User_Active.Queue;
             case "Gaming":return Enums.User_Active.Gaming;
             default:break;
         }

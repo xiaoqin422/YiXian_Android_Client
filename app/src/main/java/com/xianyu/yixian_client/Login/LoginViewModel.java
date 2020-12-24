@@ -3,6 +3,7 @@ package com.xianyu.yixian_client.Login;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.xianyu.yixian_client.Model.Debug.Log.Tag;
@@ -32,13 +33,23 @@ import io.reactivex.Single;
  */
 public class LoginViewModel extends ViewModel {
     public RepositoryFactory repositoryFactory;
+    public MutableLiveData<String> verificationCode = new MutableLiveData<String>();
     @EntryPoint
     @InstallIn(SingletonComponent.class)
     interface ViewModelEntryPoint {
          RepositoryFactory repositoryProvide();
     }
-    public void addUser(User user){
-        repositoryFactory.addUser(user);
+    public void insertUser(User user){
+        repositoryFactory.insertUser(user);
+    }
+    public void deleteUser(User user){
+        repositoryFactory.deleteUser(user);
+    }
+    public void updateUser(User user){
+        repositoryFactory.updateUser(user);
+    }
+    public void clearAllUser(User user){
+        repositoryFactory.updateUser(user);
     }
     public Single<List<User>> query_Users(){
        return repositoryFactory.queryUsers();
@@ -49,5 +60,14 @@ public class LoginViewModel extends ViewModel {
         repositoryFactory = hiltEntryPoint.repositoryProvide();
         Log.d(Tag.Information,"生成了一个实体");
     }
+    public void ValidUser(User user){
+        repositoryFactory.ValidUser(user);
+    };
+    public void RegisterUser(User user){
+        repositoryFactory.RegisterUser(user);
+    };
+    public void ChangeUser(User user){
+        repositoryFactory.ChangeUser(user,verificationCode.getValue());
+    };
 }
 

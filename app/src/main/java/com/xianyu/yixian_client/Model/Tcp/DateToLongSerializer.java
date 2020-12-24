@@ -3,6 +3,7 @@ package com.xianyu.yixian_client.Model.Tcp;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 
 import java.lang.reflect.Type;
 import java.util.Date;
@@ -19,8 +20,9 @@ import java.util.Date;
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
-public class DateToLongSerializer {
+public class DateToLongSerializer implements JsonSerializer<Date> {
+    @Override
     public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) {
-        return new JsonPrimitive(src.getTime());
+        return new JsonPrimitive(((Date)src).getTime());
     }
 }
