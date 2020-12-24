@@ -79,7 +79,5 @@ public class Application_Provider {
     public ReceiveEvent gameReceiveEvent;
     */
 
-
-
 }
 

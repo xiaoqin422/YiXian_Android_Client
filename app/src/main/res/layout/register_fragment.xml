@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.3"
-        android:background="#FFEBEE"
+        android:background="@drawable/shape_corner"
         app:layout_constraintCircleAngle="15"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -50,12 +50,12 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username"
+            style="@style/XY.TextInputLayout.TextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/XY.TextInputLayout.TextInputEditText"
             android:hint="@string/username"
 
-            android:inputType="text" />
+            android:inputType="number|text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

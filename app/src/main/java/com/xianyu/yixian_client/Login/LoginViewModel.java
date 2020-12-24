@@ -1,12 +1,8 @@
 package com.xianyu.yixian_client.Login;
 
-import android.content.Context;
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.xianyu.yixian_client.Model.Debug.Log.Tag;
 import com.xianyu.yixian_client.Model.Repository.RepositoryFactory;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 
@@ -14,7 +10,6 @@ import java.util.List;
 
 import dagger.hilt.EntryPoint;
 import dagger.hilt.InstallIn;
-import dagger.hilt.android.EntryPointAccessors;
 import dagger.hilt.components.SingletonComponent;
 import io.reactivex.Single;
 
@@ -34,6 +29,7 @@ import io.reactivex.Single;
 public class LoginViewModel extends ViewModel {
     public RepositoryFactory repositoryFactory;
     public MutableLiveData<String> verificationCode = new MutableLiveData<String>();
+    public MutableLiveData<String> surePassword = new MutableLiveData<String>();
     @EntryPoint
     @InstallIn(SingletonComponent.class)
     interface ViewModelEntryPoint {
@@ -54,20 +50,17 @@ public class LoginViewModel extends ViewModel {
     public Single<List<User>> query_Users(){
        return repositoryFactory.queryUsers();
     }
-    public LoginViewModel(Context context){
-        //自定义注入
-        ViewModelEntryPoint hiltEntryPoint = EntryPointAccessors.fromApplication(context,ViewModelEntryPoint.class);
-        repositoryFactory = hiltEntryPoint.repositoryProvide();
-        Log.d(Tag.Information,"生成了一个实体");
+    public LoginViewModel(RepositoryFactory repositoryFactory){
+        this.repositoryFactory = repositoryFactory;
     }
     public void ValidUser(User user){
         repositoryFactory.ValidUser(user);
     };
     public void RegisterUser(User user){
         repositoryFactory.RegisterUser(user);
-    };
+    }
     public void ChangeUser(User user){
         repositoryFactory.ChangeUser(user,verificationCode.getValue());
-    };
+    }
 }
 

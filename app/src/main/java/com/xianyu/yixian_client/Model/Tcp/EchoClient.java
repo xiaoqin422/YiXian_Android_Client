@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.xianyu.yixian_client.Model.Core;
-import com.xianyu.yixian_client.Model.Debug.Log.Tag;
+import com.xianyu.yixian_client.Model.Log.Log.Tag;
 import com.xianyu.yixian_client.Model.Enums;
 import com.xianyu.yixian_client.Model.Repository.RemoteRepository;
 

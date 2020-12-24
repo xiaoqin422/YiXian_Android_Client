@@ -8,7 +8,7 @@
     <string name="gm_login">游戏登录</string>
     <string name="sure_password">确认密码</string>
     <string name="verification_code">验证码</string>
-    <string name="confirm">确认</string>
+    <string name="confirm_dialog">确认</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

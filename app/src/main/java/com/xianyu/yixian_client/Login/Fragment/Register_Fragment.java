@@ -41,16 +41,21 @@ public class Register_Fragment extends Fragment  {
         binding = RegisterFragmentBinding.inflate(inflater,container,false);
         TextInputEditText userName_UI = binding.getRoot().findViewById(R.id.username);
         TextInputEditText passWord_UI = binding.getRoot().findViewById(R.id.password);
+        TextInputEditText surePassword_UI = binding.getRoot().findViewById(R.id.sure_password);
         Core.liveUser.observe(getViewLifecycleOwner(), new Observer<User>() {
             @Override
             public void onChanged(User user) {
                 String ui_userName = userName_UI.getText().toString();
                 String ui_password = passWord_UI.getText().toString();
-                if(!ui_userName.equals(user.getUserName())){
-                    userName_UI.setText(user.getUserName());
+                String ui_surePassword = surePassword_UI.getText().toString();
+                if(!ui_userName.equals(user.getUsername())){
+                    userName_UI.setText(user.getUsername());
                 }
                 if(!ui_password.equals(user.getPasswords())){
                     passWord_UI.setText(user.getPasswords());
+                }
+                if(!ui_surePassword.equals(viewModel.surePassword.getValue())){
+                    surePassword_UI.setText(viewModel.surePassword.getValue());
                 }
             }
         });
@@ -67,8 +72,8 @@ public class Register_Fragment extends Fragment  {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(!s.toString().equals(Core.liveUser.getValue().getUserName())){
-                    Core.liveUser.getValue().setUserName(s.toString());
+                if(!s.toString().equals(Core.liveUser.getValue().getUsername())){
+                    Core.liveUser.getValue().setUsername(s.toString());
                     Core.liveUser.postValue(Core.liveUser.getValue());
                 }
             }
@@ -86,9 +91,27 @@ public class Register_Fragment extends Fragment  {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(!s.toString().equals(Core.liveUser.getValue().getUserName())){
+                if(!s.toString().equals(Core.liveUser.getValue().getUsername())){
                     Core.liveUser.getValue().setPasswords(s.toString());
                     Core.liveUser.postValue(Core.liveUser.getValue());
+                }
+            }
+        });
+        surePassword_UI.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!s.toString().equals(viewModel.surePassword.getValue())){
+                    viewModel.surePassword.postValue(s.toString());
                 }
             }
         });
@@ -96,5 +119,10 @@ public class Register_Fragment extends Fragment  {
     }
     public Register_Fragment(LoginViewModel viewModel){
         this.viewModel = viewModel;
+    }
+    @Override
+    public void onDestroy() {
+        onDestroyView();
+        super.onDestroy();
     }
 }

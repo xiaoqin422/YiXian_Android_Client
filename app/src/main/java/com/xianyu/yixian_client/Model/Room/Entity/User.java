@@ -60,6 +60,24 @@ public class User
     private HashMap<String, Simple_SkillCard> repository_SkillCards = new HashMap<String, Simple_SkillCard>();//技能卡仓库
     @Ignore
     private HashMap<String, Simple_SkillCard> battle_SkillCards = new HashMap<String, Simple_SkillCard>();//备战的技能卡
+
+    @NonNull
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(@NonNull String userName) {
+        this.userName = userName;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
     public String getPasswords() {
         return passwords;
     }
@@ -75,15 +93,6 @@ public class User
     public void setMsgToken(MsgToken msgToken) {
         this.msgToken = msgToken;
     }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
 
 
 
@@ -163,12 +172,6 @@ public class User
     }
 
 
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-
     @Override
     public String toString() {
         return "User{" +
@@ -195,11 +198,6 @@ public class User
                 ", battle_SkillCards=" + battle_SkillCards +
                 '}';
     }
-
-    public String getUserName() {
-        return userName;
-    }
-
 
     public int getUpgrade_num() {
         return upgrade_num;

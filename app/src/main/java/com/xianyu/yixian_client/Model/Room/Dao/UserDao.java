@@ -35,7 +35,7 @@ public interface UserDao {
     @Delete
     public void deleteUser(User... user);
 
-    @Query("SELECT * FROM users WHERE UserName = :username")
+    @Query("SELECT * FROM users WHERE username = :username")
     public Single<User> queryUser(String username);
     @Query("SELECT * FROM users WHERE qQ = :qQ")
     public Single<List<User>> queryUser(long qQ);

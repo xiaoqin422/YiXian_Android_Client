@@ -42,7 +42,7 @@ public class UnitTest_Espresso {
     @Test
     public void Database(){
         User user = new User();
-        user.setUserName("12312");
+        user.setUsername("12312");
         user.setQQ(839336369);
         dataBase_room.userDao().insert(user);
         dataBase_room.userDao().queryUsers().observe(activityTestRule.getActivity(),new Observer<List<User>>() {

@@ -26,6 +26,7 @@ public class Login_Fragment_Adapter extends FragmentStateAdapter {
     private static final int NUM_LOGIN_FRAGMENT = 3;
     private FragmentActivity activity;
     private LoginViewModel loginViewModel;
+
     public Login_Fragment_Adapter(FragmentActivity activity,LoginViewModel loginViewModel) {
         super(activity);
         // TODO Auto-generated constructor stub

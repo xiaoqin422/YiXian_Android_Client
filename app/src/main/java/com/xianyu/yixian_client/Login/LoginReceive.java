@@ -52,38 +52,28 @@ public class LoginReceive implements IReceiveListener{
                         emitter.onNext(user);
                     }
                 }).observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(arg -> {
-                            viewModel.deleteUser(user);
-                            Core.liveUser.setValue(user);
-                            viewModel.insertUser(user);
-                            new MaterialAlertDialogBuilder(activity)
-                                    .setTitle("您的账户是：" + user.getUserName())
-                                    .setMessage(user.toString())
-                                    .setNeutralButton(R.string.confirm, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            dialog.dismiss();
-                                        }
-                                    })
-                                    .show();
-                        });
+                  .subscribe(arg -> {
+                      viewModel.deleteUser(user);
+                      Core.liveUser.setValue(user);
+                      viewModel.insertUser(user);
+                      new MaterialAlertDialogBuilder(activity)
+                              .setTitle("您的账户是：" + user.getUsername())
+                              .setMessage(user.toString())
+                              .setNeutralButton(R.string.confirm_dialog, new DialogInterface.OnClickListener() {
+                                  @Override
+                                  public void onClick(DialogInterface dialog, int which) {
+                                      dialog.dismiss();
+                                  }
+                              })
+                              .show();
+                  });
             }
             else if(data[1].equals("用户不存在")){
-                Observable.create(new ObservableOnSubscribe<Integer>() {
-                    @Override
-                    public void subscribe(@NonNull ObservableEmitter<Integer> emitter) throws Exception {
-                        emitter.onNext(1);
-                    }
-                }).observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(arg -> {
-                            new MaterialAlertDialogBuilder(activity)
-                                    .setTitle("登录失败")
-                                    .setMessage("用户不存在")
-                                    .setNeutralButton(R.string.confirm, (dialog, which) -> dialog.dismiss())
-                                    .show();
-                        });
-
-
+                new MaterialAlertDialogBuilder(activity)
+                        .setTitle("登录失败")
+                        .setMessage("用户不存在")
+                        .setNeutralButton(R.string.confirm_dialog, (dialog, which) -> dialog.dismiss())
+                        .show();
             }
             else if(data[1].equals("密码错误")){
                 Observable.create(new ObservableOnSubscribe<Integer>() {
@@ -96,7 +86,7 @@ public class LoginReceive implements IReceiveListener{
                             new MaterialAlertDialogBuilder(activity)
                                     .setTitle("登录失败")
                                     .setMessage("密码错误")
-                                    .setNeutralButton(R.string.confirm, (dialog, which) -> dialog.dismiss())
+                                    .setNeutralButton(R.string.confirm_dialog, (dialog, which) -> dialog.dismiss())
                                     .show();
                         });
 
@@ -116,8 +106,8 @@ public class LoginReceive implements IReceiveListener{
                             Core.liveUser.postValue(arg);
                             new MaterialAlertDialogBuilder(activity)
                                     .setTitle("注册成功")
-                                    .setMessage("您已成功注册账户:" + arg.getUserName())
-                                    .setNeutralButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                                    .setMessage("您已成功注册账户:" + arg.getUsername())
+                                    .setNeutralButton(R.string.confirm_dialog, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.dismiss();
@@ -138,7 +128,7 @@ public class LoginReceive implements IReceiveListener{
                             new MaterialAlertDialogBuilder(activity)
                                     .setTitle("注册失败")
                                     .setMessage("用户已存在")
-                                    .setNeutralButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                                    .setNeutralButton(R.string.confirm_dialog, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.dismiss();
@@ -161,7 +151,7 @@ public class LoginReceive implements IReceiveListener{
                             new MaterialAlertDialogBuilder(activity)
                                     .setTitle("修改成功")
                                     .setMessage("您已成功修改账户密码")
-                                    .setNeutralButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                                    .setNeutralButton(R.string.confirm_dialog, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.dismiss();
@@ -181,7 +171,7 @@ public class LoginReceive implements IReceiveListener{
                             new MaterialAlertDialogBuilder(activity)
                                     .setTitle("修改失败")
                                     .setMessage("尚未注册")
-                                    .setNeutralButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                                    .setNeutralButton(R.string.confirm_dialog, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.dismiss();
@@ -203,7 +193,7 @@ public class LoginReceive implements IReceiveListener{
                             new MaterialAlertDialogBuilder(activity)
                                     .setTitle("修改失败")
                                     .setMessage("验证码错误")
-                                    .setNeutralButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                                    .setNeutralButton(R.string.confirm_dialog, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.dismiss();
