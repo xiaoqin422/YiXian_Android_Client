@@ -57,7 +57,7 @@ public class LoginReceive implements IReceiveListener{
                       Core.liveUser.setValue(user);
                       viewModel.insertUser(user);
                       new MaterialAlertDialogBuilder(activity)
-                              .setTitle("您的账户是：" + user.getUsername())
+                              .setTitle("您的账户是：" + user.getUserName())
                               .setMessage(user.toString())
                               .setNeutralButton(R.string.confirm_dialog, new DialogInterface.OnClickListener() {
                                   @Override
@@ -106,7 +106,7 @@ public class LoginReceive implements IReceiveListener{
                             Core.liveUser.postValue(arg);
                             new MaterialAlertDialogBuilder(activity)
                                     .setTitle("注册成功")
-                                    .setMessage("您已成功注册账户:" + arg.getUsername())
+                                    .setMessage("您已成功注册账户:" + arg.getUserName())
                                     .setNeutralButton(R.string.confirm_dialog, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {

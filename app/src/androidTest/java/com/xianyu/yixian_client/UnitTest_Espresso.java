@@ -42,15 +42,10 @@ public class UnitTest_Espresso {
     @Test
     public void Database(){
         User user = new User();
-        user.setUsername("12312");
+        user.setUserName("12312");
         user.setQQ(839336369);
         dataBase_room.userDao().insert(user);
-        dataBase_room.userDao().queryUsers().observe(activityTestRule.getActivity(),new Observer<List<User>>() {
-            @Override
-            public void onChanged(List<User> users) {
-                System.out.println(users.get(0).getQQ());
-            }
-        });
+
     }
     @After
     public void closeDb() throws IOException {

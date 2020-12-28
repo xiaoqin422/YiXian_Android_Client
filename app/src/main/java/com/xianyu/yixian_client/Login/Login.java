@@ -112,7 +112,7 @@ public class Login extends AppCompatActivity {
                     .subscribe(users -> {
                         if(users.isEmpty()){
                             User user = new User();
-                            user.setUsername("落花无痕浅流淌");
+                            user.setUserName("落花无痕浅流淌");
                             user.setInformation("相思请放下,再醒来时折花.");
                             Core.liveUser.setValue(user);
                             Log.i(Tag.Room, "创建新用户\n"+Core.liveUser.toString());
@@ -145,14 +145,14 @@ public class Login extends AppCompatActivity {
     }
 
     public void Login_Click() {
-        if(Core.liveUser.getValue().getPasswords().isEmpty() || Core.liveUser.getValue().getUsername().isEmpty()){
+        if(Core.liveUser.getValue().getPasswords().isEmpty() || Core.liveUser.getValue().getUserName().isEmpty()){
             MessageDialog.Error_Dialog(this,"登录失败","内容不能为空");
         }
         else viewModel.ValidUser(Core.liveUser.getValue());
     }
 
     public void Register_Click() {
-        if(Core.liveUser.getValue().getPasswords().isEmpty() || Core.liveUser.getValue().getUsername().isEmpty() || viewModel.surePassword.getValue().isEmpty()){
+        if(Core.liveUser.getValue().getPasswords().isEmpty() || Core.liveUser.getValue().getUserName().isEmpty() || viewModel.surePassword.getValue().isEmpty()){
             MessageDialog.Error_Dialog(this,"注册失败","内容不能为空");
         }
         else if(Core.liveUser.getValue().getPasswords().equals(viewModel.surePassword.getValue())){
@@ -161,7 +161,7 @@ public class Login extends AppCompatActivity {
         else MessageDialog.Error_Dialog(this,"注册失败","重复密码与密码不一致");
     }
     public void Forget_Click() {
-        if(Core.liveUser.getValue().getPasswords().isEmpty() || Core.liveUser.getValue().getUsername().isEmpty() || viewModel.verificationCode.getValue().isEmpty()){
+        if(Core.liveUser.getValue().getPasswords().isEmpty() || Core.liveUser.getValue().getUserName().isEmpty() || viewModel.verificationCode.getValue().isEmpty()){
             MessageDialog.Error_Dialog(this,"找回失败","内容不能为空");
         }
         else if(!Core.liveUser.getValue().getPasswords().equals(viewModel.surePassword)){
