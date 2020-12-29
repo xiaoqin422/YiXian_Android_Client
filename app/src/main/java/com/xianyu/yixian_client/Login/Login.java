@@ -32,6 +32,7 @@ import io.reactivex.schedulers.Schedulers;
 
 @AndroidEntryPoint
 public class Login extends AppCompatActivity {
+    //。。。
     private ViewPager2 paper;
     private TabLayout tab;
     LoginViewModel viewModel;
