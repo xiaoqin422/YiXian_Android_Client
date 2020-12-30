@@ -35,7 +35,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class Register_Fragment extends Fragment  {
     public LoginViewModel viewModel;
     public RegisterFragmentBinding binding;
-    //笑笑写的代码
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

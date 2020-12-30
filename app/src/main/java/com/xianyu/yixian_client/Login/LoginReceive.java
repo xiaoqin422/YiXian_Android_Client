@@ -22,7 +22,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * @ProjectName: YiXian_Client
  * @Package: com.xianyu.yixian_client.Login
- * @ClassName: LoginReceive
+ * @ClassName: RepositoryReceive
  * @Description: java类作用描述
  * @Author: Jianxian
  * @CreateDate: 2020/12/19 12:08

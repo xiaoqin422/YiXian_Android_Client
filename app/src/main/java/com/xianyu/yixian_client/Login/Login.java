@@ -18,6 +18,7 @@ import com.xianyu.yixian_client.Model.Log.Log.Tag;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.Model.ShortCode.MessageDialog;
 import com.xianyu.yixian_client.R;
+import com.xianyu.yixian_client.databinding.LoginActivityBinding;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import dagger.hilt.android.EntryPointAccessors;
@@ -47,11 +48,7 @@ public class Login extends AppCompatActivity {
         //Service初始化
         Intent intentOne = new Intent(this, LoginService.class);
         startService(intentOne);
-        //视频初始化
-        VideoView videoView = findViewById(R.id.back_ground);
-        videoView.setVideoPath(Uri.parse("android.resource://" + getPackageName() + "/raw/" + R.raw.cg_bg).toString());
-        videoView.setOnPreparedListener(mp -> mp.setLooping(true));
-        videoView.start();
+
         //跳出主线程
         Disposable temp = Observable.create(new ObservableOnSubscribe<LoginViewModel>() {
             @Override
