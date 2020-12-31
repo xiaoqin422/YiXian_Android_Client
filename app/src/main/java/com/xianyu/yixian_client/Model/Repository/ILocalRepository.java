@@ -1,5 +1,6 @@
 package com.xianyu.yixian_client.Model.Repository;
 
+import com.xianyu.yixian_client.Model.Room.Entity.Simple_SkillCard;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 
 import java.util.List;
@@ -28,4 +29,8 @@ interface ILocalRepository {
     public void updateUser(User user);
 
     public void clearAllUser(User user);
+
+    public void insertSkillCard(Simple_SkillCard simple_skillCard);
+
+    public Single<List<Simple_SkillCard>> querySkillCard();
 }
