@@ -3,6 +3,7 @@ package com.xianyu.yixian_client.Model.Repository;
 import android.annotation.SuppressLint;
 
 import com.xianyu.yixian_client.Model.Room.DataBase_Room;
+import com.xianyu.yixian_client.Model.Room.Entity.Simple_SkillCard;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 
 import java.util.List;
@@ -33,7 +34,7 @@ import io.reactivex.schedulers.Schedulers;
  * @Version: 1.0
  */
 @Singleton
-public class RepositoryFactory implements IRemoteRepository,ILocalRepository{
+public class RepositoryFactory{
     private LocalRepository local;
     private RemoteRepository remote;
     private final CompositeDisposable disposable = new CompositeDisposable();
@@ -51,15 +52,26 @@ public class RepositoryFactory implements IRemoteRepository,ILocalRepository{
         return local.queryUsers();
     }
 
-    @Override
+
     public void deleteUser(User arg) {
         RxNoneOne(user -> local.deleteUser(user), arg);
     }
-    @Override
+
     public void clearAllUser(User arg) {
         RxNoneOne(user -> local.clearAllUser(user), arg);
     }
-    @Override
+
+
+    public void insertSkillCard(Simple_SkillCard simple_skillCard) {
+        RxNoneOne(arg -> local.insertSkillCard(arg), simple_skillCard);
+    }
+
+
+    public Single<List<Simple_SkillCard>> querySkillCard() {
+        return local.querySkillCard();
+    }
+
+
     public void updateUser(User user) {
         RxNoneOne(arg -> local.insertUser(arg), user);
     }
@@ -68,12 +80,12 @@ public class RepositoryFactory implements IRemoteRepository,ILocalRepository{
         RxNoneOne(arg -> remote.ValidUser(arg), user);
     }
 
-    @Override
+
     public void RegisterUser(User user) {
         remote.RegisterUser(user);
     }
 
-    @Override
+
     public void ChangeUser(User user,String verificationCode) {
         remote.ChangeUser(user,verificationCode);
     }
@@ -81,14 +93,14 @@ public class RepositoryFactory implements IRemoteRepository,ILocalRepository{
     @SuppressLint("CheckResult")
     public <T> void RxNoneOne(Consumer<T> functions,T arg){
         Observable.create(new ObservableOnSubscribe<T>() {
-            @Override
+        
             public void subscribe(@NonNull ObservableEmitter<T> emitter) throws Exception {
                 emitter.onNext(arg);
                 emitter.onComplete();
             }
         }).observeOn(Schedulers.io())
                 .subscribe(new Consumer<T>() {
-                    @Override
+                
                     public void accept(T arg) throws Exception {
                             functions.accept(arg);
                     }

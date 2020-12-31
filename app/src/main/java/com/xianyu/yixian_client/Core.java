@@ -1,4 +1,4 @@
-package com.xianyu.yixian_client.Model;
+package com.xianyu.yixian_client;
 
 import androidx.lifecycle.MutableLiveData;
 
