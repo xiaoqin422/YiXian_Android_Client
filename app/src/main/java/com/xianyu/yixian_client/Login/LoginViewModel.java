@@ -8,6 +8,8 @@ import com.xianyu.yixian_client.Model.Room.Entity.User;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import dagger.hilt.EntryPoint;
 import dagger.hilt.InstallIn;
 import dagger.hilt.components.SingletonComponent;
@@ -17,7 +19,7 @@ import io.reactivex.Single;
 /**
  * @ProjectName: YiXian_Client
  * @Package: com.xianyu.yixian_client.Login
- * @ClassName: LoginViewModel
+ * @ClassName: RepositoryViewModel
  * @Description: java类作用描述
  * @Author: Jianxian
  * @CreateDate: 2020/12/19 17:34
@@ -27,14 +29,15 @@ import io.reactivex.Single;
  * @Version: 1.0
  */
 public class LoginViewModel extends ViewModel {
-    public RepositoryFactory repositoryFactory;
     public MutableLiveData<String> verificationCode = new MutableLiveData<String>();
     public MutableLiveData<String> surePassword = new MutableLiveData<String>();
+    public RepositoryFactory repositoryFactory;
     @EntryPoint
     @InstallIn(SingletonComponent.class)
     interface ViewModelEntryPoint {
          RepositoryFactory repositoryProvide();
     }
+
     public void insertUser(User user){
         repositoryFactory.insertUser(user);
     }
