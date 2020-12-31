@@ -4,8 +4,10 @@ import android.content.Context;
 
 import androidx.room.Room;
 
+import com.xianyu.yixian_client.Model.Repository.RepositoryFactory;
 import com.xianyu.yixian_client.Model.Room.Dao.UserDao;
 import com.xianyu.yixian_client.Model.Room.DataBase_Room;
+import com.xianyu.yixian_client.Repository.RepositoryViewModel;
 
 import dagger.Module;
 import dagger.Provides;
@@ -31,7 +33,7 @@ public class Application_Provider {
     //数据库 不需要Singleton，因为Factory是Singleton
     @Provides
     public DataBase_Room provideDB_Room(@ApplicationContext Context context){
-        return Room.databaseBuilder(context, DataBase_Room.class,"xianyu.db").build();
+        return Room.inMemoryDatabaseBuilder(context, DataBase_Room.class).build();
     }
     @Provides
     public UserDao UserDaoProvide(DataBase_Room db){

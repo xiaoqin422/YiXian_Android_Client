@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.xianyu.yixian_client.Login.LoginViewModel;
-import com.xianyu.yixian_client.Model.Core;
+import com.xianyu.yixian_client.Core;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.LoginFragmentBinding;
@@ -43,8 +43,8 @@ public class Login_Fragment extends Fragment {
             public void onChanged(User user) {
                 String ui_userName = userName_UI.getText().toString();
                 String ui_password = passWord_UI.getText().toString();
-                if(!ui_userName.equals(user.getUsername())){
-                    userName_UI.setText(user.getUsername());
+                if(!ui_userName.equals(user.getUserName())){
+                    userName_UI.setText(user.getUserName());
                 }
                 if(!ui_password.equals(user.getPasswords())){
                     passWord_UI.setText(user.getPasswords());
@@ -64,8 +64,8 @@ public class Login_Fragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(!s.toString().equals(Core.liveUser.getValue().getUsername())){
-                    Core.liveUser.getValue().setUsername(s.toString());
+                if(!s.toString().equals(Core.liveUser.getValue().getUserName())){
+                    Core.liveUser.getValue().setUserName(s.toString());
                     Core.liveUser.postValue(Core.liveUser.getValue());
                 }
             }
@@ -83,7 +83,7 @@ public class Login_Fragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(!s.toString().equals(Core.liveUser.getValue().getUsername())){
+                if(!s.toString().equals(Core.liveUser.getValue().getUserName())){
                     Core.liveUser.getValue().setPasswords(s.toString());
                     Core.liveUser.postValue(Core.liveUser.getValue());
                 }

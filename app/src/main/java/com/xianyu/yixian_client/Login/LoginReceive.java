@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.xianyu.yixian_client.Model.Core;
+import com.xianyu.yixian_client.Core;
 import com.xianyu.yixian_client.Model.Event.IEventListener.IReceiveListener;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.Model.Tcp.MsgServer;
@@ -22,7 +22,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * @ProjectName: YiXian_Client
  * @Package: com.xianyu.yixian_client.Login
- * @ClassName: LoginReceive
+ * @ClassName: RepositoryReceive
  * @Description: java类作用描述
  * @Author: Jianxian
  * @CreateDate: 2020/12/19 12:08
@@ -57,7 +57,7 @@ public class LoginReceive implements IReceiveListener{
                       Core.liveUser.setValue(user);
                       viewModel.insertUser(user);
                       new MaterialAlertDialogBuilder(activity)
-                              .setTitle("您的账户是：" + user.getUsername())
+                              .setTitle("您的账户是：" + user.getUserName())
                               .setMessage(user.toString())
                               .setNeutralButton(R.string.confirm_dialog, new DialogInterface.OnClickListener() {
                                   @Override
@@ -106,7 +106,7 @@ public class LoginReceive implements IReceiveListener{
                             Core.liveUser.postValue(arg);
                             new MaterialAlertDialogBuilder(activity)
                                     .setTitle("注册成功")
-                                    .setMessage("您已成功注册账户:" + arg.getUsername())
+                                    .setMessage("您已成功注册账户:" + arg.getUserName())
                                     .setNeutralButton(R.string.confirm_dialog, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {

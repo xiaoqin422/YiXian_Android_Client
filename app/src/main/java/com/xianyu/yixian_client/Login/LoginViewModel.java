@@ -8,6 +8,8 @@ import com.xianyu.yixian_client.Model.Room.Entity.User;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import dagger.hilt.EntryPoint;
 import dagger.hilt.InstallIn;
 import dagger.hilt.components.SingletonComponent;
@@ -17,7 +19,7 @@ import io.reactivex.Single;
 /**
  * @ProjectName: YiXian_Client
  * @Package: com.xianyu.yixian_client.Login
- * @ClassName: LoginViewModel
+ * @ClassName: RepositoryViewModel
  * @Description: java类作用描述
  * @Author: Jianxian
  * @CreateDate: 2020/12/19 17:34
@@ -27,13 +29,12 @@ import io.reactivex.Single;
  * @Version: 1.0
  */
 public class LoginViewModel extends ViewModel {
-    public RepositoryFactory repositoryFactory;
     public MutableLiveData<String> verificationCode = new MutableLiveData<String>();
     public MutableLiveData<String> surePassword = new MutableLiveData<String>();
-    @EntryPoint
-    @InstallIn(SingletonComponent.class)
-    interface ViewModelEntryPoint {
-         RepositoryFactory repositoryProvide();
+    public RepositoryFactory repositoryFactory;
+    @Inject
+    public LoginViewModel(RepositoryFactory repositoryFactory){
+        this.repositoryFactory = repositoryFactory;
     }
     public void insertUser(User user){
         repositoryFactory.insertUser(user);
@@ -50,9 +51,6 @@ public class LoginViewModel extends ViewModel {
     public Single<List<User>> query_Users(){
        return repositoryFactory.queryUsers();
     }
-    public LoginViewModel(RepositoryFactory repositoryFactory){
-        this.repositoryFactory = repositoryFactory;
-    }
     public void ValidUser(User user){
         repositoryFactory.ValidUser(user);
     };
@@ -62,5 +60,6 @@ public class LoginViewModel extends ViewModel {
     public void ChangeUser(User user){
         repositoryFactory.ChangeUser(user,verificationCode.getValue());
     }
+
 }
 
