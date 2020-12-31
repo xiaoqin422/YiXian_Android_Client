@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.xianyu.yixian_client.Login.LoginViewModel;
-import com.xianyu.yixian_client.Model.Core;
+import com.xianyu.yixian_client.Core;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.RegisterFragmentBinding;
@@ -35,7 +35,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class Register_Fragment extends Fragment  {
     public LoginViewModel viewModel;
     public RegisterFragmentBinding binding;
-    //笑笑写的代码
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
