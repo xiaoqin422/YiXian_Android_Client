@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.xianyu.yixian_client.Model.Core;
+import com.xianyu.yixian_client.Core;
 import com.xianyu.yixian_client.Model.Event.IEventListener.IReceiveListener;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.Model.Tcp.MsgServer;
@@ -22,7 +22,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * @ProjectName: YiXian_Client
  * @Package: com.xianyu.yixian_client.Login
- * @ClassName: LoginReceive
+ * @ClassName: RepositoryReceive
  * @Description: java类作用描述
  * @Author: Jianxian
  * @CreateDate: 2020/12/19 12:08

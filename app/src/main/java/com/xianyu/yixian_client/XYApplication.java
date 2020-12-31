@@ -4,7 +4,6 @@ import android.app.Application;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
-import com.xianyu.yixian_client.Model.Core;
 import com.xianyu.yixian_client.Model.Tcp.DateToLongSerializer;
 import com.xianyu.yixian_client.Model.Tcp.LongToDateDeserializer;
 

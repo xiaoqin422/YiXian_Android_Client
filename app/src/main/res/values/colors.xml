@@ -12,4 +12,12 @@
     <color name="gray_600">#FF757575</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="primaryColor">#0288d1</color>
+    <color name="primaryLightColor">#5eb8ff</color>
+    <color name="primaryDarkColor">#005b9f</color>
+    <color name="secondaryColor">#e3f2fd</color>
+    <color name="secondaryLightColor">#ffffff</color>
+    <color name="secondaryDarkColor">#b1bfca</color>
+    <color name="primaryTextColor">#e1f5fe</color>
+    <color name="secondaryTextColor">#000000</color>
 </resources>
