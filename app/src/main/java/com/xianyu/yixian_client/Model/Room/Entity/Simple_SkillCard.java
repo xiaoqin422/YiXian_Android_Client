@@ -1,5 +1,13 @@
 package com.xianyu.yixian_client.Model.Room.Entity;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+import com.xianyu.yixian_client.Model.Room.Convert.User_Active_Convert;
+
 /**
  * @ProjectName: YiXian_Client
  * @Package: com.xianyu.yixian_client.Model
@@ -12,7 +20,10 @@ package com.xianyu.yixian_client.Model.Room.Entity;
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
+@Entity(tableName = "skill_cards")
 public class Simple_SkillCard {
+    @PrimaryKey
+    @NonNull
     private String name;
     private int level;
     private int amount;

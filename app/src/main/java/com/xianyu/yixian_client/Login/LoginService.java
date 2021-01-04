@@ -12,7 +12,7 @@ import com.xianyu.yixian_client.R;
 /**
  * @ProjectName: YiXian_Client
  * @Package: com.xianyu.yixian_client.Login
- * @ClassName: LoginService
+ * @ClassName: RepositoryService
  * @Description: java类作用描述
  * @Author: Jianxian
  * @CreateDate: 2020/12/23 18:06
