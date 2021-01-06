@@ -5,6 +5,8 @@
     <string name="pw_forget">忘记密码</string>
     <string name="username">用户名</string>
     <string name="password">密码</string>
+    <string name="nickname">玩家名称</string>
+    <string name="level">玩家等级</string>
     <string name="gm_login">游戏登录</string>
     <string name="sure_password">确认密码</string>
     <string name="verification_code">验证码</string>

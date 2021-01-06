@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Battle_Repository.battle_activity" >
+        <activity android:name=".Battle_Repository.Battle_Activity" >
 
         </activity>
 
