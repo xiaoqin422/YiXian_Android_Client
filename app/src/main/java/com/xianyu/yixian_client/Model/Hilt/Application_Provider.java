@@ -4,8 +4,10 @@ import android.content.Context;
 
 import androidx.room.Room;
 
+import com.xianyu.yixian_client.Model.Repository.RepositoryFactory;
 import com.xianyu.yixian_client.Model.Room.Dao.UserDao;
 import com.xianyu.yixian_client.Model.Room.DataBase_Room;
+import com.xianyu.yixian_client.Repository.RepositoryViewModel;
 
 import dagger.Module;
 import dagger.Provides;
