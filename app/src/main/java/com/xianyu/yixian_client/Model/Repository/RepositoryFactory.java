@@ -3,7 +3,6 @@ package com.xianyu.yixian_client.Model.Repository;
 import android.annotation.SuppressLint;
 
 import com.xianyu.yixian_client.Model.Room.DataBase_Room;
-import com.xianyu.yixian_client.Model.Room.Entity.Simple_SkillCard;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 
 import java.util.List;

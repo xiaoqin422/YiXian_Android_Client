@@ -7,7 +7,6 @@ import android.os.Bundle;
 import com.xianyu.yixian_client.R;
 
 public class battle_activity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

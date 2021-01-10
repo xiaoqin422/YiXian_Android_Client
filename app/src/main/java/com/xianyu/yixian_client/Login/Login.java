@@ -1,8 +1,10 @@
 package com.xianyu.yixian_client.Login;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -49,7 +51,11 @@ public class Login extends AppCompatActivity {
         //Service初始化
         Intent intentOne = new Intent(this, LoginService.class);
         startService(intentOne);
-
+        //视频初始化
+        VideoView videoView = findViewById(R.id.back_ground);
+        videoView.setVideoPath(Uri.parse("android.resource://" + getPackageName() + "/raw/" + R.raw.cg_bg).toString());
+        videoView.setOnPreparedListener(mp -> mp.setLooping(true));
+        videoView.start();
         //跳出主线程
         Disposable temp = Observable.create(new ObservableOnSubscribe<LoginViewModel>() {
             @Override
