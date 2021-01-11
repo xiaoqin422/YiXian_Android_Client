@@ -51,4 +51,9 @@ public class Simple_SkillCard {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
+    public Simple_SkillCard(@NonNull String name, int amount) {
+        this.name = name;
+        this.amount = amount;
+    }
 }

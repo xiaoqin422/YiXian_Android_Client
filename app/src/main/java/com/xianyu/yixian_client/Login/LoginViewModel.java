@@ -65,5 +65,7 @@ public class LoginViewModel extends ViewModel {
     public void ChangeUser(User user){
         repositoryFactory.ChangeUser(user,verificationCode.getValue());
     }
+
+
 }
 
