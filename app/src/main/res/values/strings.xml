@@ -11,4 +11,5 @@
     <string name="confirm_dialog">确认</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="活动3">即时场次/胜率</string>
 </resources>
