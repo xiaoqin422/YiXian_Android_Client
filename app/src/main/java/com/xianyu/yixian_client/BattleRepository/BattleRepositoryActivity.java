@@ -16,7 +16,7 @@ import java.util.List;
 public class BattleRepositoryActivity extends AppCompatActivity {
     BattlerepositoryActivityBinding binding;
     BattleRepositoryViewModel battleRepositoryViewModel;
-//
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
