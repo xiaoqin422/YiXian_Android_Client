@@ -13,9 +13,12 @@ import com.xianyu.yixian_client.Login.Fragment.Bind.DepthPageTransformer;
 import com.xianyu.yixian_client.Login.Fragment.Bind.Login_Fragment_Adapter;
 import com.xianyu.yixian_client.Core;
 import com.xianyu.yixian_client.Model.Log.Log.Tag;
+import com.xianyu.yixian_client.Model.Repository.RepositoryFactory;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.Model.ShortCode.MessageDialog;
 import com.xianyu.yixian_client.R;
+
+import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import dagger.hilt.android.EntryPointAccessors;
@@ -32,6 +35,7 @@ import io.reactivex.schedulers.Schedulers;
 public class Login extends AppCompatActivity {
     private ViewPager2 paper;
     private TabLayout tab;
+    @Inject
     LoginViewModel viewModel;
     private final CompositeDisposable disposable = new CompositeDisposable();
     @Override
@@ -51,8 +55,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void subscribe(@NonNull ObservableEmitter<LoginViewModel> emitter) {
                 //自定义注入
-                LoginViewModel.ViewModelEntryPoint hiltEntryPoint = EntryPointAccessors.fromApplication(getApplicationContext(), LoginViewModel.ViewModelEntryPoint.class);
-                emitter.onNext(new LoginViewModel(hiltEntryPoint.repositoryProvide()));
+                emitter.onNext(viewModel);
                 emitter.onComplete();
             }
         }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe(loginViewModel -> {

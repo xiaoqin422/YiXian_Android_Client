@@ -22,5 +22,5 @@ public class Core {
     public static ReceiveEvent information_ReceiveEvent = new ReceiveEvent();
     public static ReceiveEvent gameReceive_Event = new ReceiveEvent();
     public static MutableLiveData<User> liveUser = new MutableLiveData<User>();
-    public static Gson gson ;
+    public static Gson gson;
 }
