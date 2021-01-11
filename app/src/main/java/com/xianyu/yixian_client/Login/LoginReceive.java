@@ -37,7 +37,6 @@ public class LoginReceive implements IReceiveListener{
      public LoginReceive(Activity activity,LoginViewModel viewModel){
          this.activity = activity;
          this.viewModel = viewModel;
-         //上传测试
      }
      @SuppressLint("CheckResult")
      @Override

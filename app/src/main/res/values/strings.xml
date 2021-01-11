@@ -10,7 +10,16 @@
     <string name="verification_code">验证码</string>
     <string name="confirm_dialog">确认</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="textview">TextView</string>
-    <string name="textview1">TextView</string>
+    <string name="user_log">用户头像</string>
+    <string name="game_notice">公告</string>
+    <string name="game_Shopping">商城</string>
+    <string name="game_enjoy">创享</string>
+    <string name="game_official">官方</string>
+    <string name="game_type1">回合</string>
+    <string name="game_type2">即时</string>
+    <string name="game_setting">设置</string>
+    <string name="user_papers">点卷</string>
+    <string name="user_coin">金币</string>
+    <string name="user_experience">经验</string>
+    <string name="user_username">昵称</string>
 </resources>
