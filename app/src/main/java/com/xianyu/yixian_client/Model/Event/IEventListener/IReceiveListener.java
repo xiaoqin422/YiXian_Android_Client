@@ -1,7 +1,5 @@
 package com.xianyu.yixian_client.Model.Event.IEventListener;
 
-import com.xianyu.yixian_client.Model.Tcp.MsgServer;
-
 import java.util.EventListener;
 
 /**

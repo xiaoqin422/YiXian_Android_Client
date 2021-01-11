@@ -1,9 +1,7 @@
 package com.xianyu.yixian_client.Model.Event.ReceiveEvent;
 
 import com.xianyu.yixian_client.Model.Event.IEventListener.IReceiveListener;
-import com.xianyu.yixian_client.Model.Tcp.MsgServer;
 
-import java.util.EventObject;
 import java.util.Iterator;
 import java.util.Vector;
 

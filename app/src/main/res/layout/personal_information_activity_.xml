@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#FFFFFF"
-    tools:context=".Model.PersonalInformation.personalInformation_Activity">
+    tools:context=".PersonalInformation.personalInformation_Activity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

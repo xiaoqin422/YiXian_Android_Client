@@ -1,4 +1,4 @@
-package com.xianyu.yixian_client.Model.PersonalInformation;
+package com.xianyu.yixian_client.PersonalInformation;
 
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 
