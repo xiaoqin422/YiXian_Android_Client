@@ -6,35 +6,50 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.xianyu.yixian_client.Model.Room.Entity.Buff;
+import com.xianyu.yixian_client.Model.Room.Entity.SkillCard;
+import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.RepositoryActivityBinding;
 
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class RepositoryActivity extends AppCompatActivity {
     RepositoryActivityBinding binding;
+    @Inject
     RepositoryViewModel repositoryViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = RepositoryActivityBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.repository_activity);
         //初始化
         Init();
     }
 
     private void Init() {
-        //repositoryViewModel = new RepositoryViewModel();
-        /*
-        List<Simple_SkillCard> cards = new ArrayList();
-        cards.add(new Simple_SkillCard("气仙盾","盾出挡势功",1,2,3,5,6,5,4,5));
-        cards.add(new Simple_SkillCard("气斩","奋力一斩,是剑术中的一种绝对势功",4,2,4,2,0,4,4,5));
-        cards.add(new Simple_SkillCard("气羽化","羽化而登仙，仙者不可灭",7,3,3,6,0,5,7,3));
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        List<SkillCard> cards = new ArrayList();
+        Buff buff = new Buff();
+        SkillCard skillCard = new SkillCard();
+        buff.setName("冻结");
+        skillCard.getBuffs().add(buff);
+        buff = new Buff();
+        buff.setName("燃烧");
+        skillCard.getBuffs().add(buff);
+        skillCard.setName("气仙盾");
+        skillCard.setMp(10);
+        cards.add(skillCard);
+        skillCard = new SkillCard();
+        skillCard.setName("气斩");
+        skillCard.setMp(10);
+        cards.add(skillCard);
         CardAdapt cardAdapt = new CardAdapt(cards);
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        RecyclerView recyclerView = binding.getRoot().findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(layoutManager);
+        RecyclerView recyclerView = findViewById(R.id.card_frame);
         recyclerView.setAdapter(cardAdapt);
-
-         */
     }
 }

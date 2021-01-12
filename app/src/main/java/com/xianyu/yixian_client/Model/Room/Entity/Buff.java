@@ -24,7 +24,7 @@ public class Buff {
     public enum Category { Freeze };
     @PrimaryKey
     long id;//状态ID
-    int name;//状态名称
+    String name;//状态名称
     int duration_Immediate;//效果持续时长
     int duration_Round;//效果持续回合
     int power;//能力
@@ -39,11 +39,11 @@ public class Buff {
         this.id = id;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 

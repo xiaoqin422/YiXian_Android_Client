@@ -39,7 +39,6 @@
         android:id="@+id/navigationView"
         android:layout_width="51dp"
         android:layout_height="224dp"
-        app:headerLayout="@layout/header_navigation_drawer"
         app:menu="@menu/navigation_drawer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
