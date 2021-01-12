@@ -26,4 +26,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_papers">即时场次/胜率</string>
+    <string name="user_log">即时场次/胜率</string>
+    <string name="game_type1">即时场次/胜率</string>
+    <string name="game_type2">即时场次/胜率</string>
+    <string name="user_coin">即时场次/胜率</string>
+    <string name="user_username">即时场次/胜率</string>
+    <string name="game_setting">即时场次/胜率</string>
+    <string name="game_notice">即时场次/胜率</string>
+    <string name="game_Shopping">即时场次/胜率</string>
+    <string name="game_enjoy">即时场次/胜率</string>
+    <string name="game_official">即时场次/胜率</string>
+    <string name="user_experience">即时场次/胜率</string>
 </resources>
