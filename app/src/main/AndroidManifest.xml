@@ -14,18 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
         <activity android:name=".PersonalInformation.PersonalInformation_Activity" android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Main.MainActivity">
 
         </activity>
 
         <activity android:name=".Repository.RepositoryActivity" android:screenOrientation="landscape">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".BattleRepository.BattleRepositoryActivity" >

@@ -37,7 +37,6 @@ public class PersonalInformation_Activity extends AppCompatActivity {
         paper.setPageTransformer(new DepthPageTransformer());
         paper.setAdapter(new PersonalInformation_Fragment_Adapter(this,viewModel));
         initData();
-        int a;
     }
 
     private void initData() {

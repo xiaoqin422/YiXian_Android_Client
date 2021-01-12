@@ -83,18 +83,10 @@ public class RepositoryFactory{
     //RxJava2的异步方法封装
     @SuppressLint("CheckResult")
     public <T> void RxNoneOne(Consumer<T> functions,T arg){
-        Observable.create(new ObservableOnSubscribe<T>() {
-        
-            public void subscribe(@NonNull ObservableEmitter<T> emitter) throws Exception {
-                emitter.onNext(arg);
-                emitter.onComplete();
-            }
+        Observable.create((ObservableOnSubscribe<T>) emitter -> {
+            emitter.onNext(arg);
+            emitter.onComplete();
         }).observeOn(Schedulers.io())
-                .subscribe(new Consumer<T>() {
-                
-                    public void accept(T arg) throws Exception {
-                            functions.accept(arg);
-                    }
-                });
+                .subscribe(arg1 -> functions.accept(arg1));
     }
 }
