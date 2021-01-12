@@ -11,14 +11,14 @@
         android:id="@+id/card_frame"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_margin="10dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        android:layout_margin="5dp"
-        app:layout_constraintHorizontal_weight="5"
-        app:spanCount="3"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/Select_card"
         app:layout_constraintTop_toTopOf="parent"
+        app:spanCount="3"
         tools:listitem="@layout/repositorycard_item">
 
     </androidx.recyclerview.widget.RecyclerView>
