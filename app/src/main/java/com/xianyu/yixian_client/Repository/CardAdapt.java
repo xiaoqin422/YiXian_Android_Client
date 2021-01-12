@@ -9,14 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.xianyu.yixian_client.Model.Room.Entity.Simple_SkillCard;
+import com.xianyu.yixian_client.Model.Room.Entity.SkillCard;
 import com.xianyu.yixian_client.R;
 
 import java.util.List;
 
 public class CardAdapt extends RecyclerView.Adapter<CardAdapt.ViewHolder> {
-    private List<Simple_SkillCard> simple_skillCards;
-    public  CardAdapt(List<Simple_SkillCard> simple_skillCards){
+    private List<SkillCard> simple_skillCards;
+    public  CardAdapt(List<SkillCard> simple_skillCards){
         this.simple_skillCards = simple_skillCards;
     }
     @NonNull
@@ -30,17 +30,19 @@ public class CardAdapt extends RecyclerView.Adapter<CardAdapt.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Simple_SkillCard simple_skillCard=simple_skillCards.get(position);
-        holder.name_ui.setText(simple_skillCard.getName());
-        holder.description_ui.setText(simple_skillCard.getDescription());
-        holder.num1_ui.setText(Integer.toString(simple_skillCard.getNum1));
-        holder.num2_ui.setText(Integer.toString(simple_skillCard.getNum2));
-        holder.num3_ui.setText(Integer.toString(simple_skillCard.getNum3));
-        holder.num4_ui.setText(Integer.toString(simple_skillCard.getNum4));
-        holder.num5_ui.setText(Integer.toString(simple_skillCard.getNum5));
-        holder.num6_ui.setText(Integer.toString(simple_skillCard.getNum6));
-        holder.num7_ui.setText(Integer.toString(simple_skillCard.getNum7));
-        holder.num8_ui.setText(Integer.toString(simple_skillCard.getNum8));
+        SkillCard skillCard =simple_skillCards.get(position);
+        holder.name_ui.setText(skillCard.getName());
+        holder.description_ui.setText(skillCard.getDescription());
+        /*
+        holder.num1_ui.setText(Integer.toString(skillCard.getNum1));
+        holder.num2_ui.setText(Integer.toString(skillCard.getNum2));
+        holder.num3_ui.setText(Integer.toString(skillCard.getNum3));
+        holder.num4_ui.setText(Integer.toString(skillCard.getNum4));
+        holder.num5_ui.setText(Integer.toString(skillCard.getNum5));
+        holder.num6_ui.setText(Integer.toString(skillCard.getNum6));
+        holder.num7_ui.setText(Integer.toString(skillCard.getNum7));
+        holder.num8_ui.setText(Integer.toString(skillCard.getNum8));
+         */
     }
 
     @Override
