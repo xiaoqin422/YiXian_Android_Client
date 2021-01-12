@@ -3,6 +3,7 @@ package com.xianyu.yixian_client.Model.Repository;
 import android.annotation.SuppressLint;
 
 import com.xianyu.yixian_client.Model.Room.DataBase_Room;
+import com.xianyu.yixian_client.Model.Room.Entity.History;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 
 import java.util.List;
@@ -60,15 +61,26 @@ public class RepositoryFactory{
         RxNoneOne(user -> local.clearAllUser(user), arg);
     }
 
-
-
-
     public void updateUser(User user) {
         RxNoneOne(arg -> local.insertUser(arg), user);
     }
 
+    public void insertHistory(History... history) {
+        RxNoneOne(arg -> local.insertHistory(history), history);
+    }
 
+    public void deleteHistory(History... history) {
+        RxNoneOne(arg -> local.deleteHistory(history), history);
+    }
 
+    public void updateHistory(History... history) {
+        RxNoneOne(arg -> local.updateHistory(history), history);
+    }
+
+    public Single<List<History>> queryHistory(long user_id) {
+        return local.queryHistory(user_id);
+    }
+    //RxJava2的异步方法封装
     @SuppressLint("CheckResult")
     public <T> void RxNoneOne(Consumer<T> functions,T arg){
         Observable.create(new ObservableOnSubscribe<T>() {

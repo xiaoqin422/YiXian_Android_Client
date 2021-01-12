@@ -34,7 +34,6 @@ public class RepositoryActivity extends AppCompatActivity {
         RecyclerView recyclerView = binding.getRoot().findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(cardAdapt);
-
          */
     }
 }

@@ -72,11 +72,12 @@
         android:id="@+id/temp"
         android:layout_width="151dp"
         android:layout_height="411dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="28dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/recycler_view"
         app:layout_constraintTop_toTopOf="parent">
+
         <com.google.android.material.chip.ChipGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -157,7 +158,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
                     android:layout_marginRight="20dp"
-                    android:src=""
                     android:visibility="gone" />
             </FrameLayout>
 
