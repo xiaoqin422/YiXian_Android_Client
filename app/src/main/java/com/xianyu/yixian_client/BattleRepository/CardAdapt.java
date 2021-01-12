@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textview.MaterialTextView;
 import com.xianyu.yixian_client.Model.Room.Entity.Simple_SkillCard;
 import com.xianyu.yixian_client.R;
 
@@ -44,15 +45,15 @@ public class CardAdapt extends RecyclerView.Adapter<CardAdapt.ViewHolder>{
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        TextInputEditText skill;
-        TextInputEditText skill1;
-        TextInputEditText skill2;
-        TextInputEditText skill3;
-        TextInputEditText skill7;
-        TextInputEditText skill4;
-        TextInputEditText skill5;
-        TextInputEditText skill6;
-        TextInputEditText skill8;
+        MaterialTextView skill;
+        MaterialTextView skill1;
+        MaterialTextView skill2;
+        MaterialTextView skill3;
+        MaterialTextView skill7;
+        MaterialTextView skill4;
+        MaterialTextView skill5;
+        MaterialTextView skill6;
+        MaterialTextView skill8;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

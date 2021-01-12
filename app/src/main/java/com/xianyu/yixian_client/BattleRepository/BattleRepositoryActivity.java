@@ -1,6 +1,8 @@
 package com.xianyu.yixian_client.BattleRepository;
 
 import android.os.Bundle;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,8 +18,6 @@ import java.util.List;
 public class BattleRepositoryActivity extends AppCompatActivity {
     BattlerepositoryActivityBinding binding;
     BattleRepositoryViewModel battleRepositoryViewModel;
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = BattlerepositoryActivityBinding.inflate(getLayoutInflater());
@@ -38,6 +38,5 @@ public class BattleRepositoryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(cardAdapt);
     }
-
 
 }
