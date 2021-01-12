@@ -6,24 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.TextView;
-
-import com.xianyu.yixian_client.Login.LoginViewModel;
-import com.xianyu.yixian_client.Model.Room.Dao.UserDao_Impl;
-import com.xianyu.yixian_client.Model.Room.Entity.Simple_SkillCard;
-import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.RepositoryActivityBinding;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import dagger.hilt.android.EntryPointAccessors;
-
-import static com.xianyu.yixian_client.databinding.RepositoryActivityBinding.inflate;
 
 public class RepositoryActivity extends AppCompatActivity {
     RepositoryActivityBinding binding;
@@ -39,6 +23,7 @@ public class RepositoryActivity extends AppCompatActivity {
 
     private void Init() {
         //repositoryViewModel = new RepositoryViewModel();
+        /*
         List<Simple_SkillCard> cards = new ArrayList();
         cards.add(new Simple_SkillCard("气仙盾","盾出挡势功",1,2,3,5,6,5,4,5));
         cards.add(new Simple_SkillCard("气斩","奋力一斩,是剑术中的一种绝对势功",4,2,4,2,0,4,4,5));
@@ -49,5 +34,7 @@ public class RepositoryActivity extends AppCompatActivity {
         RecyclerView recyclerView = binding.getRoot().findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(cardAdapt);
+
+         */
     }
 }
