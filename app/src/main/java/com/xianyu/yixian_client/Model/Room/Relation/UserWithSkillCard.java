@@ -24,11 +24,14 @@ import java.util.List;
  */
 public class UserWithSkillCard {
     @Embedded
-    User user;
+    public User user;
     @Relation(
             parentColumn = "user_id",
             entityColumn = "skillcard_id",
             associateBy = @Junction(Repository.class)
     )
     public List<SkillCard> skillCards;
+    public UserWithSkillCard(){
+
+    }
 }

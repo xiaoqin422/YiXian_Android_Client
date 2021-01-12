@@ -8,8 +8,12 @@ import com.xianyu.yixian_client.Model.Log.Log.Tag;
 import com.xianyu.yixian_client.Model.Enums;
 import com.xianyu.yixian_client.Model.RPC.ClientRequestModel;
 
+import java.io.UnsupportedEncodingException;
 import java.nio.ByteOrder;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
@@ -30,6 +34,8 @@ import io.netty.handler.codec.MessageToByteEncoder;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.timeout.IdleStateHandler;
 
+import static com.xianyu.yixian_client.Core.gson;
+
 /**
  * @ProjectName: YiXian
  * @Package: com.xianyu.yixian.Model
@@ -43,10 +49,13 @@ import io.netty.handler.timeout.IdleStateHandler;
  * @Version: 1.0
  */
 public class SocketClient {
-    private final String host;
-    private final int port;
+    public final String host;
+    public final int port;
     private Channel channel;
     private Bootstrap bootstrap;
+    public ConcurrentHashMap<Integer,ClientRequestModel> tasks = new ConcurrentHashMap<Integer, ClientRequestModel>();
+    private Random random = new Random();
+    public AtomicInteger remain = new AtomicInteger(0);
     public SocketClient(String host, int port) {
         this.host = host;
         this.port = port;
@@ -61,7 +70,7 @@ public class SocketClient {
                         @Override
                         public void initChannel(SocketChannel ch)
                                 throws Exception {
-                            ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(ByteOrder.LITTLE_ENDIAN,65535,0,4,0,4,false));
+                            ch.pipeline().addLast(new CustomDecoder());
                             ch.pipeline().addLast(new StringDecoder());
                             ch.pipeline().addLast(new IdleStateHandler(0,0,5));
                             ch.pipeline().addLast(new CustomHeartbeatHandler(SocketClient.this));
@@ -74,7 +83,7 @@ public class SocketClient {
             group.shutdownGracefully();
         }
     }
-    void doConnect() {
+    public void doConnect() {
         if (channel != null && channel.isActive()) {
             return;
         }
@@ -102,12 +111,18 @@ public class SocketClient {
     }
     public void SendVoid(ClientRequestModel request){
         if(channel!=null && channel.isActive()){
-
+            channel.writeAndFlush(request);
         }
     }
-    public void Send(ClientRequestModel request){
+    public void Send(ClientRequestModel request) throws UnsupportedEncodingException {
         if(channel!=null && channel.isActive()){
-
+            int id = random.nextInt();
+            while (tasks.containsKey(id)){
+                id = random.nextInt();
+            }
+            request.Id = Integer.toString(id);
+            tasks.put(id,request);
+            channel.writeAndFlush(request);
         }
     }
 }

@@ -17,6 +17,4 @@ public class RemoteRepository {
     public RemoteRepository(){
 
     }
-
-
 }

@@ -2,6 +2,7 @@ package com.xianyu.yixian_client.Model.Repository;
 
 import com.xianyu.yixian_client.Model.Room.DataBase_Room;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
+
 import java.util.List;
 import io.reactivex.Single;
 
@@ -48,13 +49,5 @@ public class LocalRepository implements ILocalRepository{
        //**
     }
 
-    @Override
-    public void insertSkillCard(Simple_SkillCard simple_skillCard) {
-        db.skillCardDao().insert(simple_skillCard);
-    }
 
-    @Override
-    public Single<List<Simple_SkillCard>> querySkillCard() {
-        return db.skillCardDao().query();
-    }
 }

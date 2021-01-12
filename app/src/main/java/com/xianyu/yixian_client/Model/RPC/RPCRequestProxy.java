@@ -14,10 +14,11 @@ public  class RPCRequestProxy implements InvocationHandler {
     private Random random = new Random();
     private String service;
     private Pair<String,String> clientkey;
-    public <T> T Create(Class<T> T,String service,Pair<String,String> key){
-        this.service = service;
-        this.clientkey = key;
-        return (T) Proxy.newProxyInstance(T.getClass().getClassLoader(), T.getClass().getInterfaces(), this);
+    public static  <T> T Create(Class<T> T,String service,Pair<String,String> key){
+        RPCRequestProxy proxy = new RPCRequestProxy();
+        proxy.service = service;
+        proxy.clientkey = key;
+        return (T) Proxy.newProxyInstance(T.getClass().getClassLoader(), T.getClass().getInterfaces(), proxy);
     }
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

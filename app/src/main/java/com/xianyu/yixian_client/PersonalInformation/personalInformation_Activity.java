@@ -14,7 +14,7 @@ public class personalInformation_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.personal_information_activity_);
+        setContentView(R.layout.personal_information_activity);
 
         Button  btn1 = (Button) findViewById(R.id.next);
         btn1.setOnClickListener(new View.OnClickListener(){

@@ -8,7 +8,7 @@ import io.reactivex.Single;
 
 /**
  * @ProjectName: YiXian_Client
- * @Package: com.xianyu.yixian_client.Model.Repository
+ * @Package: com.xianyu.yixian_client.Model.repository
  * @ClassName: ILocalPersonalInformation
  * @Description: java类作用描述
  * @Author: Jianxian

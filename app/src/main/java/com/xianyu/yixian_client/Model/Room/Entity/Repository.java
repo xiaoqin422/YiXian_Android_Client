@@ -6,7 +6,7 @@ import androidx.room.ForeignKey;
 /**
  * @ProjectName: YiXian_Client
  * @Package: com.xianyu.yixian_client.Model.Room.Entity
- * @ClassName: Repository
+ * @ClassName: repository
  * @Description: java类作用描述
  * @Author: Jianxian
  * @CreateDate: 2021/1/8 21:50
@@ -27,4 +27,32 @@ public class Repository {
     long user_id;
     long skillcard_id;
     String solution;
+
+    public long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
+    }
+
+    public long getSkillcard_id() {
+        return skillcard_id;
+    }
+
+    public void setSkillcard_id(long skillcard_id) {
+        this.skillcard_id = skillcard_id;
+    }
+
+    public String getSolution() {
+        return solution;
+    }
+
+    public void setSolution(String solution) {
+        this.solution = solution;
+    }
+
+    public Repository(){
+
+    }
 }

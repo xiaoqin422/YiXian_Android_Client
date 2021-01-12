@@ -3,6 +3,7 @@ package com.xianyu.yixian_client.Model.Room.Entity;
 import androidx.annotation.NonNull;
 import androidx.room.Embedded;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
@@ -23,6 +24,14 @@ import java.util.List;
 @Entity(tableName = "user")
 public class User
 {
+    public ArrayList<SkillCard> getRepository() {
+        return repository;
+    }
+
+    public void setRepository(ArrayList<SkillCard> repository) {
+        this.repository = repository;
+    }
+
     public enum State { Leisure, Ready, Queue, Gaming };
     @PrimaryKey
     private long id;
@@ -38,14 +47,18 @@ public class User
     private int balances;//金钱
     private int lv = 1;//等级
     private String title = "炼气";//称号
+    @Ignore
     private State active = State.Leisure;//玩家当前游戏状态
     private int kills;//击杀数
     private int deaths;//死亡数
     private long registration_date;//注册时间
-    @Embedded
-    List<CardGroup> Battle_Repository;
-    @Embedded
-    ArrayList<SkillCard> Repository;
+    @Ignore
+    ArrayList<CardGroup> battle_Repository;
+    @Ignore
+    ArrayList<SkillCard> repository;
+    public User(){
+
+    }
     @Override
     public String toString() {
         return "User{" +
@@ -205,10 +218,10 @@ public class User
     }
 
     public List<CardGroup> getBattle_Repository() {
-        return Battle_Repository;
+        return battle_Repository;
     }
 
-    public void setBattle_Repository(List<CardGroup> battle_Repository) {
-        Battle_Repository = battle_Repository;
+    public void setBattle_Repository(ArrayList<CardGroup> battle_Repository) {
+        this.battle_Repository = battle_Repository;
     }
 }

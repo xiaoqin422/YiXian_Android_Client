@@ -24,14 +24,18 @@ public class RPCClientFactory {
                     e.printStackTrace();
                 }
             }
+            socketClient.remain.getAndIncrement();
             return socketClient;
         }
         public static void Destory(Pair<String,String> key){
             SocketClient echoClient;
             echoClient = clients.get(key);
             if(echoClient != null){
-                echoClient.disconnect();
-                clients.remove(key);
+                echoClient.remain.getAndDecrement();
+                if(echoClient.remain.get() <= 0){
+                    echoClient.disconnect();
+                    clients.remove(key);
+                }
             }
         }
 }

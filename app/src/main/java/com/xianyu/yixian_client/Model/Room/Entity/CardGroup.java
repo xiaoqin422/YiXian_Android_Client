@@ -3,6 +3,7 @@ package com.xianyu.yixian_client.Model.Room.Entity;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class CardGroup {
     long id;
     long owner_id;
     String name;
+    @Ignore
     List<SkillCard> repository;
 
     public long getId() {
@@ -61,5 +63,8 @@ public class CardGroup {
 
     public void setRepository(List<SkillCard> repository) {
         this.repository = repository;
+    }
+    public CardGroup(){
+
     }
 }

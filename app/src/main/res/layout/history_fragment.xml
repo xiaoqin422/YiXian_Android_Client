@@ -7,61 +7,11 @@
     android:backgroundTint="#FFFFFF"
     tools:context=".PersonalInformation.History_Activity">
 
-    <Spinner
-        android:id="@+id/spinner7"
-        android:layout_width="250dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="52dp"
-        android:backgroundTint="#EB3F51B5"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
-
-    <Spinner
-        android:id="@+id/spinner8"
-        android:layout_width="250dp"
-        android:layout_height="70dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/spinner7" />
-
-    <Spinner
-        android:id="@+id/spinner9"
-        android:layout_width="250dp"
-        android:layout_height="70dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/spinner8" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="127dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="38dp" />
-
-
     <Button
-        android:id="@+id/next"
+        android:id="@+id/history_button"
         android:layout_width="100dp"
         android:layout_height="35dp"
         android:layout_gravity="right"
-        android:onClick="onClickNext"
-        android:text="个人信息"
-        tools:ignore="DuplicateIds"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="134dp" />
-
-    <Button
-        android:id="@+id/next"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_gravity="right"
-        android:onClick="onClickNext"
         android:text="历史战绩"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/guideline11"
@@ -73,7 +23,6 @@
         android:layout_width="100dp"
         android:layout_height="35dp"
         android:layout_gravity="right"
-        android:onClick="onClickNext"
         android:text="仙域大陆"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintStart_toStartOf="@+id/guideline"

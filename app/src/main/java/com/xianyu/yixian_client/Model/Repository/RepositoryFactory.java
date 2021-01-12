@@ -22,7 +22,7 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * @ProjectName: YiXian_Client
- * @Package: com.xianyu.yixian_client.Model.Repository
+ * @Package: com.xianyu.yixian_client.Model.repository
  * @ClassName: RepositoryFactory
  * @Description: java类作用描述
  * @Author: Jianxian
@@ -61,33 +61,13 @@ public class RepositoryFactory{
     }
 
 
-    public void insertSkillCard(Simple_SkillCard simple_skillCard) {
-        RxNoneOne(arg -> local.insertSkillCard(arg), simple_skillCard);
-    }
-
-
-    public Single<List<Simple_SkillCard>> querySkillCard() {
-        return local.querySkillCard();
-    }
 
 
     public void updateUser(User user) {
         RxNoneOne(arg -> local.insertUser(arg), user);
     }
 
-    public void ValidUser(User user) {
-        RxNoneOne(arg -> remote.ValidUser(arg), user);
-    }
 
-
-    public void RegisterUser(User user) {
-        remote.RegisterUser(user);
-    }
-
-
-    public void ChangeUser(User user,String verificationCode) {
-        remote.ChangeUser(user,verificationCode);
-    }
 
     @SuppressLint("CheckResult")
     public <T> void RxNoneOne(Consumer<T> functions,T arg){

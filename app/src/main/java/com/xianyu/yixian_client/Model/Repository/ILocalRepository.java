@@ -8,7 +8,7 @@ import io.reactivex.Single;
 
 /**
  * @ProjectName: YiXian_Client
- * @Package: com.xianyu.yixian_client.Model.Repository
+ * @Package: com.xianyu.yixian_client.Model.repository
  * @ClassName: ILocalRepository
  * @Description: java类作用描述
  * @Author: Jianxian
@@ -28,8 +28,4 @@ interface ILocalRepository {
     public void updateUser(User user);
 
     public void clearAllUser(User user);
-
-    public void insertSkillCard(Simple_SkillCard simple_skillCard);
-
-    public Single<List<Simple_SkillCard>> querySkillCard();
 }

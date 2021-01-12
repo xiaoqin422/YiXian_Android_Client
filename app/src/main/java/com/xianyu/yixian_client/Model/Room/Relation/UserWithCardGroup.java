@@ -3,7 +3,6 @@ package com.xianyu.yixian_client.Model.Room.Relation;
 import androidx.room.Embedded;
 import androidx.room.Relation;
 
-import com.xianyu.yixian_client.Model.Room.Entity.CardGroup;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 
 import java.util.List;
@@ -27,5 +26,8 @@ public class UserWithCardGroup {
             parentColumn = "id",
             entityColumn = "owner_id"
     )
-    public List<CardGroup> CardGroup;
+    public List<com.xianyu.yixian_client.Model.Room.Entity.CardGroup> CardGroup;
+    public UserWithCardGroup(){
+
+    }
 }

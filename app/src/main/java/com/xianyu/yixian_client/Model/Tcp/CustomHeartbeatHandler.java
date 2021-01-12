@@ -1,9 +1,19 @@
 package com.xianyu.yixian_client.Model.Tcp;
 
+import com.xianyu.yixian_client.Model.RPC.ClientRequestModel;
+import com.xianyu.yixian_client.Model.RPC.ClientResponseModel;
+import com.xianyu.yixian_client.Model.RPC.RPCAdaptFactory;
+import com.xianyu.yixian_client.Model.RPC.RPCAdaptProxy;
+import com.xianyu.yixian_client.Model.RPC.ServerRequestModel;
+
+import java.lang.reflect.Method;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleStateEvent;
+import kotlin.Triple;
 
 /**
  * @author xiongyongshun
@@ -11,18 +21,31 @@ import io.netty.handler.timeout.IdleStateEvent;
  * @email yongshun1228@gmail.com
  * @created 16/9/18 13:02
  */
-public class CustomHeartbeatHandler extends SimpleChannelInboundHandler<ByteBuf> {
+public class CustomHeartbeatHandler extends ChannelInboundHandlerAdapter{
 
     private int heartbeatCount = 0;
     private SocketClient socketClient;
     public CustomHeartbeatHandler(SocketClient socketClient){
         this.socketClient = socketClient;
     }
-    @Override
-    protected void channelRead0(ChannelHandlerContext context, ByteBuf byteBuf) throws Exception {
-        //信息收发的地方
-    }
 
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        if(msg instanceof ClientResponseModel){
+           ClientRequestModel request = socketClient.tasks.get(((ClientResponseModel) msg).Id);
+           request.setResult(((ClientResponseModel) msg).Result);
+        }
+        else if(msg instanceof ServerRequestModel){
+            ServerRequestModel request = (ServerRequestModel)msg;
+            RPCAdaptProxy adapt = RPCAdaptFactory.services.get(new Triple<>(((ServerRequestModel) msg).Service,socketClient.host,socketClient.port));
+            if(adapt != null){
+                Method method = adapt.methods.get(request.MethodId);
+                if(method != null){
+                    method.invoke(null,request.Params);
+                }
+            }
+        }
+    }
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {

@@ -7,20 +7,7 @@
     android:backgroundTint="#FFFFFF"
     tools:context=".PersonalInformation.personalInformation_Activity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="38dp" />
 
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="134dp" />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -38,40 +25,29 @@
         android:layout_height="53dp"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toEndOf="@+id/spinner4"
-        app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toStartOf="@+id/spinner4" />
+        tools:layout_editor_absoluteX="345dp"
+        tools:layout_editor_absoluteY="81dp" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="412dp"
         android:src="@drawable/touxiang"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
-        app:layout_constraintStart_toStartOf="@+id/spinner4" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="250dp"
-        android:layout_height="210dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.449" />
+        tools:layout_editor_absoluteY="84dp" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="250dp"
+        android:id="@+id/select_group_button"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
         android:layout_height="210dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@+id/spinner2"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/guideline3">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/statistical_table"
+
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/button4"
@@ -86,97 +62,91 @@
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:fontFamily="@font/ziti"
             android:text="战斗记录"
             android:textColor="#A57D04"
-            android:fontFamily="@font/ziti"
-            android:textSize="30dp"/>
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/button7"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:fontFamily="@font/ziti"
             android:text="仙域大陆"
             android:textColor="#A57D04"
-            android:fontFamily="@font/ziti"
-            android:textSize="30dp"/>
+            android:textSize="30dp" />
 
     </LinearLayout>
 
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="540dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
-        app:layout_constraintStart_toEndOf="@+id/spinner2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.702" />
-
     <TableLayout
-        android:layout_width="540dp"
+        app:layout_constraintHorizontal_weight="3"
+        android:id="@+id/statistical_table"
+        android:layout_width="0dp"
         android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner3"
-        app:layout_constraintEnd_toEndOf="@+id/spinner3"
-        app:layout_constraintStart_toStartOf="@+id/spinner3"
-        app:layout_constraintTop_toTopOf="@+id/spinner3">
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/select_group_button"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.76">
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="48dp">
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="180dp"
+                android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:fontFamily="@font/ziti"
                 android:text="战斗场次"
                 android:textColor="#492D55"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="180dp"
+                android:layout_width="100dp"
                 android:layout_height="50dp"
+                android:fontFamily="@font/ziti"
                 android:text="回合场次"
-                android:textSize="20dp"
                 android:textColor="#492D55"
-                android:fontFamily="@font/ziti"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView8"
-                android:layout_width="180dp"
+                android:layout_width="100dp"
                 android:layout_height="50dp"
+                android:fontFamily="@font/ziti"
                 android:text="即时场次"
                 android:textColor="#492D55"
-                android:textSize="20dp"
-                android:fontFamily="@font/ziti"/>
+                android:textSize="20sp" />
 
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:text="胜率"
                 android:layout_gravity="center_horizontal"
-                android:textSize="20dp"
+                android:fontFamily="@font/ziti"
+                android:text="胜率"
                 android:textColor="#7C2C2C"
-                android:fontFamily="@font/ziti"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:text="胜率"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/ziti"
+                android:text="胜率"
                 android:textColor="#7C2C2C"
-                android:textSize="20dp"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView16"
@@ -186,12 +156,12 @@
                 android:fontFamily="@font/ziti"
                 android:text="胜率"
                 android:textColor="#7C2C2C"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
-            android:layout_width="60dp"
-            android:layout_height="50dp" >
+            android:layout_width="300dp"
+            android:layout_height="50dp">
 
             <EditText
                 android:id="@+id/editTextNumberPassword4"
@@ -216,20 +186,9 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="120dp"
+            android:layout_width="120sp"
             android:layout_height="match_parent" />
     </TableLayout>
-
-    <Spinner
-        android:id="@+id/spinner4"
-        android:layout_width="556dp"
-        android:layout_height="77dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

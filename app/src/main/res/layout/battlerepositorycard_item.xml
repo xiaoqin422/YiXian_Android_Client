@@ -11,7 +11,7 @@
         android:layout_height="118dp">
 
         <TextView
-            android:id="@+id/skill"
+            android:id="@+id/is_magic"
             android:layout_width="111dp"
             android:layout_height="37dp"
             android:text="技能名"

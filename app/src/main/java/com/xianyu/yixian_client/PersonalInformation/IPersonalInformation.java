@@ -4,7 +4,7 @@ import com.xianyu.yixian_client.Model.Room.Entity.User;
 
 /**
  * @ProjectName: YiXian_Client
- * @Package: com.xianyu.yixian_client.Model.Repository
+ * @Package: com.xianyu.yixian_client.Model.repository
  * @ClassName: IPersonalInformation
  * @Description: java类作用描述
  * @Author: Jianxian
