@@ -21,7 +21,6 @@ public class BattleRepositoryActivity extends AppCompatActivity {
     BattlerepositoryActivityBinding binding;
     @Inject
     BattleRepositoryViewModel viewModel;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +44,5 @@ public class BattleRepositoryActivity extends AppCompatActivity {
         RecyclerView recyclerView = binding.getRoot().findViewById(R.id.recycler_view);
         recyclerView.setAdapter(cardAdapt);
     }
-
 
 }
