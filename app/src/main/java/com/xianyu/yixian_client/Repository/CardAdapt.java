@@ -55,10 +55,40 @@ public class CardAdapt extends RecyclerView.Adapter<CardAdapt.ViewHolder> {
             materialTextView = new MaterialTextView(holder.attributes_layout.getContext());
             materialTextView.setText("治疗");
             materialTextView.setTextColor(0xFF4CAF50);
+            materialTextView.setPadding(0,0,15,0);
             holder.attributes_layout.addView(materialTextView);
         }
+        if(skillCard.isMagic()){
+            materialTextView = new MaterialTextView(holder.attributes_layout.getContext());
+            materialTextView.setText("魔法");
+            materialTextView.setTextColor(0xFF0288d1);
+            materialTextView.setPadding(0,0,15,0);
+            holder.attributes_layout.addView(materialTextView);
+        }
+        if(skillCard.isPhysics()){
+            materialTextView = new MaterialTextView(holder.attributes_layout.getContext());
+            materialTextView.setText("物理");
+            materialTextView.setTextColor(0xFF3700B3);
+            materialTextView.setPadding(0,0,15,0);
+            holder.attributes_layout.addView(materialTextView);
+        }
+        if(skillCard.isEternal()){
+            materialTextView = new MaterialTextView(holder.attributes_layout.getContext());
+            materialTextView.setText("魔法");
+            materialTextView.setTextColor(0xFFFFFF00);
+            holder.attributes_layout.addView(materialTextView);
+        }
+
         holder.name_text.setText(skillCard.getName());
+        holder.description.setText(skillCard.getDescription());
         holder.enemyHp_text.setText(Integer.toString(skillCard.getEnemy_hp()));
+        holder.damage_Mp_text.setText(Integer.toString(skillCard.getEnemy_mp()));
+        holder.cure_text.setText(Integer.toString(skillCard.getAuxiliary_hp()));
+        holder.recover_Mp_text.setText(Integer.toString(skillCard.getAuxiliary_mp()));
+        holder.probability_text.setText(Integer.toString(skillCard.getProbability()));
+        holder.attack_Number_text.setText(Integer.toString(skillCard.getMax_enemy()));
+        holder.auxiliary_Number_text.setText(Integer.toString(skillCard.getMax_auxiliary()));
+        holder.need_Mp_text.setText(Integer.toString(skillCard.getMp()));
     }
 
     @Override
@@ -67,16 +97,33 @@ public class CardAdapt extends RecyclerView.Adapter<CardAdapt.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        MaterialTextView buffs_text;
-        LinearLayout attributes_layout;
-        MaterialTextView enemyHp_text;
         MaterialTextView name_text;
+        LinearLayout attributes_layout;
+        MaterialTextView buffs_text;
+        MaterialTextView description;
+        MaterialTextView enemyHp_text;
+        MaterialTextView damage_Mp_text;
+        MaterialTextView cure_text;
+        MaterialTextView recover_Mp_text;
+        MaterialTextView probability_text;
+        MaterialTextView attack_Number_text;
+        MaterialTextView auxiliary_Number_text;
+        MaterialTextView need_Mp_text;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            name_text = itemView.findViewById(R.id.name_text);
             buffs_text = itemView.findViewById(R.id.buffs_text);
             attributes_layout = itemView.findViewById(R.id.attributes_layout);
+            description =  itemView.findViewById(R.id.description);
             enemyHp_text = itemView.findViewById(R.id.enemyHp_text);
-            name_text = itemView.findViewById(R.id.name_text);
+            damage_Mp_text =itemView.findViewById(R.id.damage_Mp_text);
+            cure_text =itemView.findViewById(R.id.cure_text);
+            recover_Mp_text =itemView.findViewById(R.id.recover_Mp_text);
+            probability_text =itemView.findViewById(R.id.probability_text);
+            attack_Number_text =itemView.findViewById(R.id.attack_Number_text);
+            auxiliary_Number_text =itemView.findViewById(R.id.auxiliary_Number_text);
+            need_Mp_text =itemView.findViewById(R.id.need_Mp_text);
         }
     }
 }

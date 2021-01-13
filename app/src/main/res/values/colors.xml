@@ -22,4 +22,7 @@
     <color name="secondaryTextColor">#000000</color>
     <color name="attack">#E91E63</color>
     <color name="cure">#4CAF50</color>
+    <color name="magic">#0288d1</color>
+    <color name="physics">#FF3700B3</color>
+    <color name="eternal">#FFFF00</color>
 </resources>

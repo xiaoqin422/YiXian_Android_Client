@@ -105,9 +105,7 @@ public class SkillCard {
         this.auxiliary_hp = auxiliary_hp;
     }
 
-    public int getAuxiliary_mp() {
-        return auxiliary_mp;
-    }
+    public int getAuxiliary_mp() { return auxiliary_mp; }
 
     public void setAuxiliary_mp(int auxiliary_mp) {
         this.auxiliary_mp = auxiliary_mp;
