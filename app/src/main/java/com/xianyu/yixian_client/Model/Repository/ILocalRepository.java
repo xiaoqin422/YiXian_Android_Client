@@ -1,7 +1,9 @@
 package com.xianyu.yixian_client.Model.Repository;
 
+import com.xianyu.yixian_client.Model.Room.Entity.History;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Single;
@@ -28,4 +30,9 @@ interface ILocalRepository {
     public void updateUser(User user);
 
     public void clearAllUser(User user);
+
+    public void insertHistory(History... history);
+    public void deleteHistory(History... history);
+    public void updateHistory(History... skillCards);
+    public Single<List<History>> queryHistory(long user_id);
 }

@@ -16,8 +16,6 @@ import dagger.hilt.components.SingletonComponent;
 
 public class BattleRepositoryViewModel extends ViewModel {
 
-    public int d = 2;
-
     public RepositoryFactory repositoryFactory;
     @Inject
     public BattleRepositoryViewModel(RepositoryFactory repositoryFactory){

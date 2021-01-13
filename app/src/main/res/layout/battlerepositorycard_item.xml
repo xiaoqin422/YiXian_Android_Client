@@ -3,103 +3,165 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    app:cardUseCompatPadding="true"
+    android:layout_width="250dp"
+    android:layout_height="150dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="250dp"
-        android:layout_height="118dp">
-
-        <TextView
-            android:id="@+id/is_magic"
-            android:layout_width="111dp"
-            android:layout_height="37dp"
-            android:text="技能名"
-            android:textAppearance="@style/TextAppearance.YiXian.Headline4"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="150dp">
+        <LinearLayout
+            android:id="@+id/top_layout"
+            app:layout_constraintVertical_weight="1"
+            android:layout_width="match_parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.426" />
+            app:layout_constraintBottom_toTopOf="@id/middle_layout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="0dp">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/magic_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/skillCard_magic"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/physics_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/skillCard_physics"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cure_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/skillCard_cure"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/attack_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/skillCard_attack"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/eternal_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/skillCard_eternal"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/middle_layout"
+            app:layout_constraintVertical_weight="2"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/top_layout"
+            app:layout_constraintBottom_toTopOf="@id/bottom_layout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:orientation="horizontal"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                >
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mp_text"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/skillCard_mp"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/probability_text"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/skillCard_probability"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/skillCard_max_enemy"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/max_auxiliary"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/skillCard_max_auxiliary"
+                    />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/skill1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
-            android:text="技能1"
-            app:layout_constraintBottom_toTopOf="@+id/skill"
-            app:layout_constraintEnd_toStartOf="@+id/skill" />
-
-        <TextView
-            android:id="@+id/skill2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginBottom="4dp"
-            android:text="技能2"
-            app:layout_constraintBottom_toTopOf="@+id/skill"
-            app:layout_constraintStart_toEndOf="@+id/skill1" />
-
-        <TextView
-            android:id="@+id/skill3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginBottom="4dp"
-            android:text="技能3"
-            app:layout_constraintBottom_toTopOf="@+id/skill"
-            app:layout_constraintStart_toEndOf="@+id/skill" />
-
-        <TextView
-            android:id="@+id/skill4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="4dp"
-            android:text="技能4"
-            app:layout_constraintEnd_toStartOf="@+id/skill"
-            app:layout_constraintTop_toBottomOf="@+id/skill1" />
-
-        <TextView
-            android:id="@+id/skill5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="13dp"
-            android:text="技能5"
-            app:layout_constraintStart_toEndOf="@+id/skill"
-            app:layout_constraintTop_toBottomOf="@+id/skill3" />
-
-        <TextView
-            android:id="@+id/skill6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="4dp"
-            android:text="技能6"
-            app:layout_constraintEnd_toStartOf="@+id/skill"
-            app:layout_constraintTop_toBottomOf="@+id/skill" />
-
-        <TextView
-            android:id="@+id/skill7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="4dp"
-            android:text="技能7"
-            app:layout_constraintStart_toEndOf="@+id/skill6"
-            app:layout_constraintTop_toBottomOf="@+id/skill" />
-
-        <TextView
-            android:id="@+id/skill8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            android:text="技能8"
-            app:layout_constraintStart_toEndOf="@+id/skill"
-            app:layout_constraintTop_toBottomOf="@+id/skill" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/name_text"
+                android:textAppearance="@style/TextAppearance.YiXian.Headline6"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:text="@string/skillCard_name"
+                >
+            </com.google.android.material.textview.MaterialTextView>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/auxiliary_hp_text"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/skillCard_auxiliary_hp"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/auxiliary_mp_text"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/skillCard_mp"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/enemy_hp_text"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/skillCard_enemy_mp"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/enemy_mp_text"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/skillCard_auxiliary_mp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/bottom_layout"
+            app:layout_constraintVertical_weight="1"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/middle_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal">
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

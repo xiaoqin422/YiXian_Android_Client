@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel;
 
 import com.xianyu.yixian_client.Login.LoginViewModel;
 import com.xianyu.yixian_client.Model.Repository.RepositoryFactory;
+import com.xianyu.yixian_client.Model.Room.Entity.Repository;
+
+import javax.inject.Inject;
 
 import dagger.hilt.EntryPoint;
 import dagger.hilt.InstallIn;
@@ -25,5 +28,9 @@ import dagger.hilt.components.SingletonComponent;
  */
 public class RepositoryViewModel extends ViewModel {
     MutableLiveData<String> message = new MutableLiveData<>();
-
+    RepositoryFactory repositoryFactory;
+    @Inject
+    public RepositoryViewModel(RepositoryFactory repositoryFactory){
+        this.repositoryFactory = repositoryFactory;
+    }
 }
