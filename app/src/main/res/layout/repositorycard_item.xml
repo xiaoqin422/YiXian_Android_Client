@@ -12,7 +12,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="200dp"
         android:layout_height="150dp"
         android:alpha="0.3"
-        android:background="@drawable/beijing"
+        android:background="@drawable/friendsystem_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintCircleAngle="15"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -25,7 +25,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/name_text"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/name"
+            android:text="@string/skillCard_name"
             android:textAppearance="@style/TextAppearance.YiXian.Headline5"
             app:layout_constraintBottom_toTopOf="@id/attributes_layout"
             app:layout_constraintHorizontal_weight="3"
@@ -61,7 +61,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/description"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/description"
+            android:text="@string/skillCard_description"
             android:textAppearance="@style/TextAppearance.YiXian.Body2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@id/enemyHp_layout"
@@ -87,7 +87,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/black"
-                android:text="@string/attack">
+                android:text="@string/skillCard_attack">
             </com.google.android.material.textview.MaterialTextView>
 
             <com.google.android.material.textview.MaterialTextView
@@ -96,7 +96,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/color_primary"
-                android:text="@string/num">
+                android:text="0">
             </com.google.android.material.textview.MaterialTextView>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -118,7 +118,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/black"
-                android:text="@string/damage_Mp">
+                android:text="@string/skillCard_enemy_mp">
             </com.google.android.material.textview.MaterialTextView>
 
             <com.google.android.material.textview.MaterialTextView
@@ -127,7 +127,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/black"
-                android:text="@string/num">
+                android:text="0">
             </com.google.android.material.textview.MaterialTextView>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -149,7 +149,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/black"
-                android:text="@string/cure">
+                android:text="@string/skillCard_cure">
             </com.google.android.material.textview.MaterialTextView>
 
             <com.google.android.material.textview.MaterialTextView
@@ -158,7 +158,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/cardview_dark_background"
-                android:text="@string/num">
+                android:text="0">
             </com.google.android.material.textview.MaterialTextView>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -179,7 +179,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/black"
-                android:text="@string/recover_Mp"/>
+                android:text="@string/skillCard_auxiliary_mp"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/recover_Mp_text"
@@ -187,7 +187,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/light_blue_400"
-                android:text="@string/num"/>
+                android:text="0"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -206,14 +206,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/black"
-                android:text="@string/probability"/>
+                android:text="@string/skillCard_probability"/>
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/probability_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/teal_700"
-                android:text="@string/num"/>
+                android:text="0"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -232,14 +232,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/black"
-                android:text="@string/attack_Number"/>
+                android:text="@string/skillCard_max_enemy"/>
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/attack_Number_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/purple_700"
-                android:text="@string/num"/>
+                android:text="0"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -258,14 +258,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/black"
-                android:text="@string/auxiliary_Number"/>
+                android:text="@string/skillCard_max_auxiliary"/>
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/auxiliary_Number_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/light_blue_600"
-                android:text="@string/num"/>
+                android:text="0"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -284,14 +284,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/black"
-                android:text="@string/need_Mp"/>
+                android:text="@string/skillCard_mp"/>
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/need_Mp_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
                 android:textColor="@color/attack"
-                android:text="@string/num"/>
+                android:text="0"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,6 +37,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:fontFamily="@font/mashanzheng"
+          android:layout_marginRight="10dp"
           android:text="@string/level"
           android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
