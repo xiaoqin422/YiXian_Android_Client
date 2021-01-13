@@ -11,52 +11,46 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.6"
-        android:background="@drawable/beijing"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintCircleAngle="15"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:background="@drawable/friendsystem_bg"/>
 
     <Button
-        android:id="@+id/button_sologame"
+        android:id="@+id/soloGame_button"
         android:layout_width="0dp"
         android:layout_height="96dp"
-        android:layout_margin="60dp"
+        android:layout_margin="10dp"
         android:text="单挑模式"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintRight_toLeftOf="@id/button_teamgame"
-        app:layout_constraintLeft_toleftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintRight_toLeftOf="@id/teamGame_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
-        android:id="@+id/button_teamgame"
+        android:id="@+id/teamGame_button"
         android:layout_width="0dp"
         android:layout_height="96dp"
-        android:layout_margin="60dp"
         android:text="团队模式"
-        app:layout_constraintHorizontal_weight="1"
+        android:layout_margin="10dp"
+        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/button_sologame"
-        app:layout_constraintRight_toLeftOf="@id/button_existencegame" />
+        app:layout_constraintLeft_toRightOf="@id/soloGame_button"
+        app:layout_constraintRight_toLeftOf="@id/existenceGame_button" />
 
     <Button
-        android:id="@+id/button_existencegame"
+        android:id="@+id/existenceGame_button"
         android:layout_width="0dp"
         android:layout_height="96dp"
-        android:layout_margin="60dp"
         android:text="生存模式"
+        android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintLeft_toRightOf="@id/button_teamgame"
+        app:layout_constraintLeft_toRightOf="@id/teamGame_button"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.542" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_retunmain"
+        android:id="@+id/returnMain_button"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginLeft="36dp"
