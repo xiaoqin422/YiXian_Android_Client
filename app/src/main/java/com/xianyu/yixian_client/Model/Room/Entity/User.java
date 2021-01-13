@@ -1,13 +1,11 @@
 package com.xianyu.yixian_client.Model.Room.Entity;
 
 import androidx.annotation.NonNull;
-import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @ProjectName: YiXian_Client
@@ -32,7 +30,7 @@ public class User
         this.repository = repository;
     }
 
-    public enum State { Leisure, Ready, Queue, Gaming };
+    public enum State { Leisure, Ready, Queue, Gaming , Offline};
     @PrimaryKey
     private long id;
     private String userName;
@@ -48,7 +46,7 @@ public class User
     private int lv = 1;//等级
     private String title = "炼气";//称号
     @Ignore
-    private State active = State.Leisure;//玩家当前游戏状态
+    private State active = State.Offline;//玩家当前游戏状态
     private int kills;//击杀数
     private int deaths;//死亡数
     private long registration_date;//注册时间
