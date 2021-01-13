@@ -15,6 +15,7 @@ import com.xianyu.yixian_client.Login.Fragment.Bind.DepthPageTransformer;
 import com.xianyu.yixian_client.Login.Fragment.Bind.Login_Fragment_Adapter;
 import com.xianyu.yixian_client.Core;
 import com.xianyu.yixian_client.Model.Log.Log.Tag;
+import com.xianyu.yixian_client.Model.Repository.RepositoryFactory;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.Model.ShortCode.MessageDialog;
 import com.xianyu.yixian_client.R;

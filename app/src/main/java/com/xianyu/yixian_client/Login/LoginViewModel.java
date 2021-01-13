@@ -34,7 +34,6 @@ public class LoginViewModel extends ViewModel {
     public LoginViewModel(RepositoryFactory repositoryFactory){
         this.repositoryFactory = repositoryFactory;
     }
-
     public void insertUser(User user){
         repositoryFactory.insertUser(user);
     }
