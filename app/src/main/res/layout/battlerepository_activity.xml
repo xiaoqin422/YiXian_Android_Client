@@ -8,14 +8,16 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="516dp"
-        android:layout_height="336dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="6"
+        app:layout_constraintHorizontal_weight="5"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/filter_layout"
+        app:layout_constraintRight_toLeftOf="@id/group_layout"
+        android:orientation="vertical"
         app:spanCount="3"
         tools:itemCount="10"
         tools:listitem="@layout/battlerepositorycard_item">
@@ -24,79 +26,88 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
-        android:layout_width="517dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="44dp"
-
+        android:id="@+id/filter_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintVertical_weight="1"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/recycler_view"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/temp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <com.google.android.material.chip.ChipGroup
-            android:layout_width="wrap_content"
+        app:layout_constraintRight_toLeftOf="@id/group_layout"
+        app:layout_constraintTop_toTopOf="parent">
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:text="返"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/search"
             android:layout_height="wrap_content">
-
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchName_textInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="搜索"
+                >
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content">
             <com.google.android.material.chip.Chip
+                android:id="@+id/physics_chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checkable="true"
-                android:text="属性一">
-
-            </com.google.android.material.chip.Chip>
+                android:text="@string/skillCard_physics"/>
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/magic_chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checkable="true"
-                android:text="属性二">
-
-            </com.google.android.material.chip.Chip>
+                android:text="@string/skillCard_magic"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/attack_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/skillCard_attack"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/cure_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/skillCard_cure"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/eternal_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/skillCard_eternal"/>
         </com.google.android.material.chip.ChipGroup>
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="属性二">
-        </com.google.android.material.chip.Chip>
-
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/temp"
-        android:layout_width="151dp"
-        android:layout_height="411dp"
-        android:layout_marginStart="28dp"
+    <ExpandableListView
+        android:id="@+id/group_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/recycler_view"
+        app:layout_constraintLeft_toRightOf="@+id/recycler_view"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintTop_toTopOf="parent">
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="卡组一"/>
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="卡组二"/>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="35dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </ExpandableListView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

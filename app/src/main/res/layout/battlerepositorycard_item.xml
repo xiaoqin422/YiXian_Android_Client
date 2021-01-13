@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
+    app:cardUseCompatPadding="true"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    app:cardUseCompatPadding="true"
-    android:layout_width="250dp"
-    android:layout_height="150dp">
-
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="250dp"
-        android:layout_height="150dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
             android:id="@+id/top_layout"
-            app:layout_constraintVertical_weight="1"
             android:layout_width="match_parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/middle_layout"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_height="0dp">
+            android:layout_height="wrap_content">
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/magic_text"
                 android:layout_width="0dp"
@@ -56,22 +54,22 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/middle_layout"
-            app:layout_constraintVertical_weight="2"
             android:layout_width="match_parent"
             app:layout_constraintTop_toBottomOf="@id/top_layout"
             app:layout_constraintBottom_toTopOf="@id/bottom_layout"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:orientation="horizontal"
-            android:layout_height="0dp">
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 >
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/mp_text"
+                    android:tooltipText="@string/skillCard_mp"
                     android:layout_width="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_height="0dp"
@@ -87,6 +85,7 @@
                     android:text="@string/skillCard_probability"
                     />
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/max_enemy_text"
                     android:layout_width="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_height="0dp"
@@ -94,7 +93,7 @@
                     android:text="@string/skillCard_max_enemy"
                     />
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/max_auxiliary"
+                    android:id="@+id/max_auxiliary_text"
                     android:layout_width="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_height="0dp"
@@ -117,7 +116,7 @@
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/auxiliary_hp_text"
                     android:layout_width="wrap_content"
@@ -154,14 +153,31 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/bottom_layout"
-            app:layout_constraintVertical_weight="1"
             android:layout_width="match_parent"
             app:layout_constraintTop_toBottomOf="@id/middle_layout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/skillCard_physics"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/skillCard_physics"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/skillCard_physics"
+                />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

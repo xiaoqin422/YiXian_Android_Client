@@ -14,7 +14,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/name_text"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/name"
+            android:text="@string/skillCard_name"
             android:textAppearance="@style/TextAppearance.YiXian.Headline5"
             app:layout_constraintBottom_toTopOf="@id/attributes_layout"
             app:layout_constraintHorizontal_weight="3"
@@ -47,7 +47,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/description"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/description"
+            android:text="@string/skillCard_description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@id/enemyHp_layout"
             app:layout_constraintVertical_weight="4"
@@ -69,7 +69,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
-                android:text="@string/attack"
+                android:text="@string/skillCard_attack"
                 >
             </com.google.android.material.textview.MaterialTextView>
 
@@ -78,7 +78,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
-                android:text="@string/num">
+                android:text="0">
             </com.google.android.material.textview.MaterialTextView>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -97,13 +97,13 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
-                android:text="@string/recover_Mp"/>
+                android:text="@string/skillCard_auxiliary_mp"/>
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/num4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="7sp"
-                android:text="@string/num"/>
+                android:text="0"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

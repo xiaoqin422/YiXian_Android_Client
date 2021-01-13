@@ -53,9 +53,9 @@ public class User
     private int deaths;//死亡数
     private long registration_date;//注册时间
     @Ignore
-    ArrayList<CardGroup> battle_Repository;
+    ArrayList<CardGroup> battle_Repository = new ArrayList<>();
     @Ignore
-    ArrayList<SkillCard> repository;
+    ArrayList<SkillCard> repository = new ArrayList<>();
     public User(){
 
     }
@@ -217,7 +217,7 @@ public class User
         this.registration_date = registration_date;
     }
 
-    public List<CardGroup> getBattle_Repository() {
+    public ArrayList<CardGroup> getBattle_Repository() {
         return battle_Repository;
     }
 

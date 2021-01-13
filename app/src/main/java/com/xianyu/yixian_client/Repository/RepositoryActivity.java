@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
+import com.xianyu.yixian_client.Model.Log.Log.Tag;
 import com.xianyu.yixian_client.Model.Room.Entity.Buff;
 import com.xianyu.yixian_client.Model.Room.Entity.SkillCard;
 import com.xianyu.yixian_client.R;

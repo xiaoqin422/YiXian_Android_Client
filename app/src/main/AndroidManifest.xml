@@ -24,7 +24,7 @@
 
         </activity>
 
-        <activity android:name=".BattleRepository.BattleRepositoryActivity" >
+        <activity android:name=".BattleRepository.BattleRepositoryActivity" android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
