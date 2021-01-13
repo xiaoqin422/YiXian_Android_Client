@@ -26,7 +26,7 @@ import java.util.List;
             }
         )
 public class CardGroup {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     long id;
     long owner_id;
     String name;
@@ -66,5 +66,12 @@ public class CardGroup {
     }
     public CardGroup(){
 
+    }
+
+    public CardGroup(long id, long owner_id, String name, List<SkillCard> repository) {
+        this.id = id;
+        this.owner_id = owner_id;
+        this.name = name;
+        this.repository = repository;
     }
 }

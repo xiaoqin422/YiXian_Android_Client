@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#FFFFFF"
-    tools:context=".PersonalInformation.personalInformation_Activity">
+    tools:context=".PersonalInformation.PersonalInformation_Activity">
 
 
     <ImageView
@@ -20,27 +20,30 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="210dp"
-        android:layout_height="53dp"
+        android:id="@+id/nickName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/head_image"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/head_image"
         android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/statistical_table"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="@+id/statistical_table"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        android:inputType="textPassword" />
 
     <ImageView
         android:id="@+id/head_image"
-        android:layout_width="117dp"
-        android:layout_height="58dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
         android:src="@drawable/touxiang"
-        app:layout_constraintBottom_toTopOf="@+id/statistical_table"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="@+id/statistical_table"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintBottom_toTopOf="@id/paper"
+        app:layout_constraintLeft_toLeftOf="@id/paper"
+        app:layout_constraintRight_toLeftOf="@id/nickName"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/select_group_button"
@@ -50,8 +53,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/statistical_table"
-
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
@@ -59,12 +60,14 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:fontFamily="@font/ziti"
+            android:onClick="personal_Click"
             android:text="个人信息"
             android:textColor="#A57D04"
             android:textSize="30dp" />
 
         <Button
             android:id="@+id/button5"
+            android:onClick="history_Click"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:fontFamily="@font/ziti"
@@ -74,117 +77,26 @@
 
         <Button
             android:id="@+id/button7"
+            android:onClick="information_Click"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:fontFamily="@font/ziti"
             android:text="仙域大陆"
             android:textColor="#A57D04"
             android:textSize="30dp" />
-
     </LinearLayout>
 
-    <TableLayout
-        android:id="@+id/statistical_table"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/paper"
         android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintLeft_toRightOf="@id/select_group_button"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:layout_constraintVertical_bias="0.76">
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:fontFamily="@font/ziti"
-                android:text="战斗场次"
-                android:textColor="#492D55"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:fontFamily="@font/ziti"
-                android:text="回合场次"
-                android:textColor="#492D55"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:fontFamily="@font/ziti"
-                android:text="即时场次"
-                android:textColor="#492D55"
-                android:textSize="20sp" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/ziti"
-                android:text="胜率"
-                android:textColor="#7C2C2C"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/ziti"
-                android:text="胜率"
-                android:textColor="#7C2C2C"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="170dp"
-                android:layout_height="46dp"
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/ziti"
-                android:text="胜率"
-                android:textColor="#7C2C2C"
-                android:textSize="20sp" />
-        </TableRow>
-
-        <TableRow>
-
-            <EditText
-                android:id="@+id/editTextNumberPassword4"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:inputType="numberPassword" />
-
-            <EditText
-                android:id="@+id/editTextNumberPassword5"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:inputType="numberPassword" />
-
-            <EditText
-                android:id="@+id/editTextNumberPassword6"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:inputType="numberPassword" />
-        </TableRow>
-    </TableLayout>
+        app:layout_constraintTop_toBottomOf="@id/head_image"
+        app:layout_constraintVertical_weight="3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

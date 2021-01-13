@@ -5,4 +5,75 @@
     android:id="@+id/repository_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Repository.RepositoryActivity"/>
+    tools:context=".Repository.RepositoryActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.3"
+        android:background="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintCircleAngle="15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/card_frame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/Select_card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spanCount="3"
+        tools:listitem="@layout/repositorycard_item">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Select_card"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="1.5"
+        app:layout_constraintVertical_weight="3.5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/card_frame"
+        app:layout_constraintBottom_toTopOf="@id/imageView1">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1.5"
+        app:layout_constraintTop_toBottomOf="@id/Select_card"
+        app:layout_constraintLeft_toRightOf="@id/card_frame"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/imageView2"
+        android:src="@drawable/upgrade"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1.5"
+        app:layout_constraintTop_toBottomOf="@id/imageView1"
+        app:layout_constraintLeft_toRightOf="@id/card_frame"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:srcCompat="@tools:sample/avatars"
+        android:src="@drawable/demoted"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
