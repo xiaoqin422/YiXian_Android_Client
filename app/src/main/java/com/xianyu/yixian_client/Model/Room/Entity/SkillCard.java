@@ -27,8 +27,8 @@ import java.util.ArrayList;
 public class SkillCard {
     @PrimaryKey
     long id;//卡牌ID-
-    String name;//卡牌名字
-    String description;//卡牌描述
+    String name = "";//卡牌名字
+    String description = "";//卡牌描述
     int mp;//释放卡牌所需消耗的仙气值
     int probability;//卡牌觉醒的概率
     int auxiliary_hp;//己方HP效果
@@ -105,9 +105,7 @@ public class SkillCard {
         this.auxiliary_hp = auxiliary_hp;
     }
 
-    public int getAuxiliary_mp() {
-        return auxiliary_mp;
-    }
+    public int getAuxiliary_mp() { return auxiliary_mp; }
 
     public void setAuxiliary_mp(int auxiliary_mp) {
         this.auxiliary_mp = auxiliary_mp;

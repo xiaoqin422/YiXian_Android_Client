@@ -29,7 +29,6 @@
     <string name="skillCard_mp">仙气值</string>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="user_log">用户头像</string>
     <string name="game_notice">公告</string>
     <string name="game_Shopping">商城</string>
@@ -48,5 +47,13 @@
     <string name="victory">胜利</string>
     <string name="defeat">失败</string>
 
-
+    <string name="nickname">玩家昵称</string>
+    <string name="level">等级</string>
+    <string name="level_sort">等级排序</string>
+    <string name="active">玩家状态</string>
+    <string name="back">返</string>
+    <string name="conversation">聊天</string>
+    <string name="personal_information">个人信息</string>
+    <string name="delete">删除好友</string>
+    <string name="screen">筛选</string>
 </resources>

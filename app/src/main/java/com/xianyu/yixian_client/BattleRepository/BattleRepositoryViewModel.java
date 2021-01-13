@@ -12,8 +12,9 @@ import javax.inject.Inject;
 import dagger.hilt.EntryPoint;
 import dagger.hilt.InstallIn;
 import dagger.hilt.android.EntryPointAccessors;
+import dagger.hilt.android.scopes.ActivityScoped;
 import dagger.hilt.components.SingletonComponent;
-
+@ActivityScoped
 public class BattleRepositoryViewModel extends ViewModel {
 
     public RepositoryFactory repositoryFactory;
