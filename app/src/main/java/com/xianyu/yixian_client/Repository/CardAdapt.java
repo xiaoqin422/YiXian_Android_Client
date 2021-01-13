@@ -4,6 +4,8 @@ package com.xianyu.yixian_client.Repository;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,22 +42,21 @@ public class CardAdapt extends RecyclerView.Adapter<CardAdapt.ViewHolder> {
         }
         holder.buffs_text.setText(stringBuilder.toString());
         stringBuilder.setLength(0);
+        MaterialTextView materialTextView;
+
         if(skillCard.isAttack()){
-            stringBuilder.append("攻击 ");
+            materialTextView = new MaterialTextView(holder.attributes_layout.getContext());
+            materialTextView.setText("攻击");
+            materialTextView.setTextColor(0xFFE91E63);
+            materialTextView.setPadding(0,0,15,0);
+            holder.attributes_layout.addView(materialTextView);
         }
-        else if(skillCard.isCure()){
-            stringBuilder.append("治疗 ");
+        if(skillCard.isCure()){
+            materialTextView = new MaterialTextView(holder.attributes_layout.getContext());
+            materialTextView.setText("治疗");
+            materialTextView.setTextColor(0xFF4CAF50);
+            holder.attributes_layout.addView(materialTextView);
         }
-        else if(skillCard.isEternal()){
-            stringBuilder.append("永恒 ");
-        }
-        else if(skillCard.isMagic()){
-            stringBuilder.append("魔法 ");
-        }
-        else if(skillCard.isPhysics()){
-            stringBuilder.append("物理 ");
-        }
-        holder.attributes_text.setText(stringBuilder.toString());
         holder.name_text.setText(skillCard.getName());
         holder.enemyHp_text.setText(Integer.toString(skillCard.getEnemy_hp()));
     }
@@ -67,15 +68,15 @@ public class CardAdapt extends RecyclerView.Adapter<CardAdapt.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         MaterialTextView buffs_text;
-        MaterialTextView attributes_text;
+        LinearLayout attributes_layout;
         MaterialTextView enemyHp_text;
         MaterialTextView name_text;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             buffs_text = itemView.findViewById(R.id.buffs_text);
-            attributes_text = itemView.findViewById(R.id.attributes_text);
+            attributes_layout = itemView.findViewById(R.id.attributes_layout);
             enemyHp_text = itemView.findViewById(R.id.enemyHp_text);
-            name_text = itemView.findViewById(R.id.name);
+            name_text = itemView.findViewById(R.id.name_text);
         }
     }
 }

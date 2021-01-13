@@ -42,6 +42,8 @@ public class RepositoryActivity extends AppCompatActivity {
         buff.setName("燃烧");
         skillCard.getBuffs().add(buff);
         skillCard.setName("气仙盾");
+        skillCard.setCure(true);
+        skillCard.setAttack(true);
         skillCard.setMp(10);
         cards.add(skillCard);
         skillCard = new SkillCard();
