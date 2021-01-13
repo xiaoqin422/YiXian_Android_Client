@@ -11,13 +11,13 @@
     <string name="sure_password">确认密码</string>
     <string name="verification_code">验证码</string>
     <string name="confirm_dialog">确认</string>
-    <string name="sex">性别</string>
     <string name="level_sort">等级排序</string>
     <string name="active">玩家状态</string>
     <string name="back">返</string>
     <string name="conversation">聊天</string>
     <string name="personal_information">个人信息</string>
     <string name="delete">删除好友</string>
+    <string name="screen">筛选</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
