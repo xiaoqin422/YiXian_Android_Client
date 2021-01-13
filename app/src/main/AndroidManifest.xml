@@ -21,14 +21,14 @@
         </activity>
 
         <activity android:name=".Repository.RepositoryActivity" android:screenOrientation="landscape">
+
+        </activity>
+
+        <activity android:name=".BattleRepository.BattleRepositoryActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity android:name=".BattleRepository.BattleRepositoryActivity" >
-
         </activity>
 
         <service

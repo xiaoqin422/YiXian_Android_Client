@@ -36,7 +36,7 @@ public class CardAdapt extends RecyclerView.Adapter<CardAdapt.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //用于对RecyclerView的子项进行赋值，会在每个子项滚动到屏幕内的时候执行
         SkillCard skillCard = simple_skillCards.get(position);
-        holder.skill.setText(skillCard.getName());
+
     }
 
     @Override
@@ -45,27 +45,21 @@ public class CardAdapt extends RecyclerView.Adapter<CardAdapt.ViewHolder>{
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        MaterialTextView skill;
-        MaterialTextView skill1;
-        MaterialTextView skill2;
-        MaterialTextView skill3;
-        MaterialTextView skill7;
-        MaterialTextView skill4;
-        MaterialTextView skill5;
-        MaterialTextView skill6;
-        MaterialTextView skill8;
-
+        MaterialTextView name_text;
+        MaterialTextView mp_text;
+        MaterialTextView physics_text;
+        MaterialTextView magic_text;
+        MaterialTextView cure_text;
+        MaterialTextView attack_text;
+        MaterialTextView eternal_text;
+        MaterialTextView enemyMp_text;
+        MaterialTextView auxiliaryHp_text;
+        MaterialTextView auxiliaryMp_text;
+        MaterialTextView probability_text;
+        MaterialTextView maxEnemy_text;
+        MaterialTextView maxAuxiliary_text;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            skill=itemView.findViewById(R.id.skill);
-            skill=itemView.findViewById(R.id.skill1);
-            skill=itemView.findViewById(R.id.skill2);
-            skill=itemView.findViewById(R.id.skill3);
-            skill=itemView.findViewById(R.id.skill4);
-            skill=itemView.findViewById(R.id.skill5);
-            skill=itemView.findViewById(R.id.skill6);
-            skill=itemView.findViewById(R.id.skill7);
-            skill=itemView.findViewById(R.id.skill8);
         }
     }
 }

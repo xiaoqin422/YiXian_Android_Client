@@ -9,20 +9,25 @@
     <string name="sure_password">确认密码</string>
     <string name="verification_code">验证码</string>
     <string name="confirm_dialog">确认</string>
-    <string name="name">卡牌名</string>
-    <string name="description">卡牌描述</string>
-    <string name="disable">禁用</string>
-    <string name="normal">普通</string>
-    <string name="shopping">商城</string>
-    <string name="attack">攻击力</string>
-    <string name="damage_Mp">损魔量</string>
-    <string name="cure">治疗量</string>
-    <string name="recover_Mp">回魔量</string>
-    <string name="probability">随机率</string>
-    <string name="attack_Number">魂命数</string>
-    <string name="auxiliary_Number">灵命数</string>
-    <string name="need_Mp">仙气值</string>
-    <string name="num">数值</string>
+
+    <string name="skillCard_name">卡牌名</string>
+    <string name="skillCard_description">卡牌描述</string>
+    <string name="skillCard_disable">禁用</string>
+    <string name="skillCard_normal">普通</string>
+    <string name="skillCard_shopping">商城</string>
+    <string name="skillCard_physics">物理</string>
+    <string name="skillCard_magic">魔法</string>
+    <string name="skillCard_cure">治疗</string>
+    <string name="skillCard_attack">攻击</string>
+    <string name="skillCard_eternal">永恒</string>
+    <string name="skillCard_enemy_mp">损魔量</string>
+    <string name="skillCard_auxiliary_hp">治疗量</string>
+    <string name="skillCard_auxiliary_mp">回魔量</string>
+    <string name="skillCard_probability">随机率</string>
+    <string name="skillCard_max_enemy">魂命数</string>
+    <string name="skillCard_max_auxiliary">灵命数</string>
+    <string name="skillCard_mp">仙气值</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="user_log">用户头像</string>
@@ -42,4 +47,6 @@
     <string name="history_kills">击杀数</string>
     <string name="victory">胜利</string>
     <string name="defeat">失败</string>
+
+
 </resources>
