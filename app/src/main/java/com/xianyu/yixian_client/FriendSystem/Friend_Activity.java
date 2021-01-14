@@ -4,23 +4,25 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.xianyu.yixian_client.FriendSystem.Adapt.Friend_Adapt;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.FriendsActivityBinding;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
-public class Friends_Activity extends AppCompatActivity {
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+public class Friend_Activity extends AppCompatActivity {
     ArrayList<User> friends;
     FriendsActivityBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,42 +32,6 @@ public class Friends_Activity extends AppCompatActivity {
         init();
     }
     void init(){
-
-        User user = new User();
-        user.setNickName("雅");
-        user.setLv(3);
-        friends = new ArrayList<>();
-        friends.add(user);
-        user = new User();
-        user.setNickName("阿清");
-        user.setLv(3);
-        friends.add(user);
-        user = new User();
-        user.setNickName("阿红");
-        user.setLv(1);
-        friends.add(user);
-        user = new User();
-        user.setNickName("阿明");
-        user.setLv(5);
-        friends.add(user);
-        user = new User();
-        user.setNickName("雅2");
-        user.setLv(3);
-        user.setActive(User.State.Leisure);
-        friends.add(user);
-        user = new User();
-        user.setNickName("雅3");
-        user.setLv(4);
-        friends.add(user);
-        user = new User();
-        user.setNickName("雅4");
-        user.setLv(3);
-        friends.add(user);
-        user = new User();
-        user.setNickName("雅5");
-        user.setLv(1);
-        user.setActive(User.State.Leisure);
-        friends.add(user);
         Friend_Adapt adapt = new Friend_Adapt(friends);
         RecyclerView recyclerView = binding.getRoot().findViewById(R.id.friends);
         recyclerView.setAdapter(adapt);

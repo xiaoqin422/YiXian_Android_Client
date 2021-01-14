@@ -1,4 +1,4 @@
-package com.xianyu.yixian_client.FriendSystem;
+package com.xianyu.yixian_client.FriendSystem.Adapt;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +13,12 @@ import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.R;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class Friend_Adapt extends RecyclerView.Adapter<Friend_Adapt.ViewHolder> {
     ArrayList<User> origin_data;
     ArrayList<User> filter_data;
-    Filter_BluePrint bluePrint = new Filter_BluePrint();
+    public Filter_BluePrint bluePrint = new Filter_BluePrint();
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -92,7 +91,7 @@ public class Friend_Adapt extends RecyclerView.Adapter<Friend_Adapt.ViewHolder> 
             deleteFriend_button = itemView.findViewById(R.id.deleteFriend_button);
         }
     }
-    class Filter_BluePrint{
+    public class Filter_BluePrint{
         String nickName = "";
         boolean active = false;
         boolean level = false;

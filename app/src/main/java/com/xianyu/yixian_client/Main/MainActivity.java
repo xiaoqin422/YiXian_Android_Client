@@ -14,18 +14,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.xianyu.yixian_client.Core;
 import com.xianyu.yixian_client.Login.LoginService;
+import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.MainActivityBinding;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
     MainActivityBinding binding;
-    MainViewModel mainViewModel;
     @Inject
     MainViewModel viewModel;
     @Override
@@ -59,11 +65,18 @@ public class MainActivity extends AppCompatActivity {
         v3.getBackground().setAlpha(20);//0~255透明度值
         v4.getBackground().setAlpha(20);//0~255透明度值
         v5.getBackground().setAlpha(20);//0~255透明度值
-
         TextView text1 = binding.getRoot().findViewById(R.id.textView_experience);
         TextView text2 = binding.getRoot().findViewById(R.id.textView_username);
 
+        viewModel.repository.queryUserById(123456)
+                .subscribeOn(Schedulers.io())//查询数据时的线程
+                .observeOn(AndroidSchedulers.mainThread())//数据查找完毕的线程
+                .subscribe(users -> {
+                    if(users.size()>0){
+                        Core.liveUser.setValue(users.get(0));
+                        text1.setText(Integer.toString(Core.liveUser.getValue().getExp()));
+                    }
+                });
 
-        text1.setText("我是复制体");
     }
 }

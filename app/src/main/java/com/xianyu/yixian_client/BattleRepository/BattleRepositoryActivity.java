@@ -40,15 +40,17 @@ public class BattleRepositoryActivity extends AppCompatActivity {
         binding = BattlerepositoryActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         //初始化
-        Init();
+        init();
     }
 
     @SuppressLint("CheckResult")
-    private void Init() {
+    private void init() {
         ExpandableListView expandableListView;
         expandableListView = binding.getRoot().findViewById(R.id.group_layout);
         GroupAdapter groupAdapter = new GroupAdapter(Core.liveUser.getValue().getCardGroups());
         expandableListView.setAdapter(groupAdapter);
+
+
         for (CardGroup cardGroup : Core.liveUser.getValue().getCardGroups()){
             for(Long id : cardGroup.getCards_id()){
                 viewModel.repository.querySkillCardById(id)
@@ -60,44 +62,40 @@ public class BattleRepositoryActivity extends AppCompatActivity {
         viewModel.repository.queryAllSkillCards()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<List<SkillCard>>() {
-                    @SuppressLint("CheckResult")
-                    @Override
-                    public void accept(List<SkillCard> skillCards) throws Exception {
-                        Core.liveSkillcards.setValue(new ArrayList<>(skillCards));
-                        RecyclerView recyclerView;
-                        SkillCardAdapt cardAdapt = new SkillCardAdapt(Core.liveSkillcards.getValue());
-                        recyclerView = binding.getRoot().findViewById(R.id.recycler_view);
-                        recyclerView.setAdapter(cardAdapt);
-                        TextInputEditText editText = findViewById(R.id.searchName_textInput);
-                        editText.addTextChangedListener(new TextWatcher() {
-                            @Override
-                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                .subscribe(skillCards -> {
+                    Core.liveSkillcards.setValue(new ArrayList<>(skillCards));
+                    RecyclerView recyclerView;
+                    SkillCardAdapt cardAdapt = new SkillCardAdapt(Core.liveSkillcards.getValue());
+                    recyclerView = binding.getRoot().findViewById(R.id.recycler_view);
+                    recyclerView.setAdapter(cardAdapt);
+                    TextInputEditText editText = findViewById(R.id.searchName_textInput);
+                    editText.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                            }
+                        }
 
-                            @Override
-                            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                                cardAdapt.bluePrint.setName(s.toString());
-                                cardAdapt.filter();
-                            }
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+                            cardAdapt.bluePrint.setName(s.toString());
+                            cardAdapt.filter();
+                        }
 
-                            @Override
-                            public void afterTextChanged(Editable s) {
+                        @Override
+                        public void afterTextChanged(Editable s) {
 
-                            }
-                        });
-                        Chip physics_chip = findViewById(R.id.physics_chip);
-                        physics_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setPhysics(isChecked);cardAdapt.filter();});
-                        Chip magic_chip = findViewById(R.id.magic_chip);
-                        magic_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setMagic(isChecked);cardAdapt.filter();});
-                        Chip cure_chip = findViewById(R.id.cure_chip);
-                        cure_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setCure(isChecked);cardAdapt.filter();});
-                        Chip attack_chip = findViewById(R.id.attack_chip);
-                        attack_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setAttack(isChecked);cardAdapt.filter();});
-                        Chip eternal_chip = findViewById(R.id.eternal_chip);
-                        eternal_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setEternal(isChecked);cardAdapt.filter();});
-                    }
+                        }
+                    });
+                    Chip physics_chip = findViewById(R.id.physics_chip);
+                    physics_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setPhysics(isChecked);cardAdapt.filter();});
+                    Chip magic_chip = findViewById(R.id.magic_chip);
+                    magic_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setMagic(isChecked);cardAdapt.filter();});
+                    Chip cure_chip = findViewById(R.id.cure_chip);
+                    cure_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setCure(isChecked);cardAdapt.filter();});
+                    Chip attack_chip = findViewById(R.id.attack_chip);
+                    attack_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setAttack(isChecked);cardAdapt.filter();});
+                    Chip eternal_chip = findViewById(R.id.eternal_chip);
+                    eternal_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setEternal(isChecked);cardAdapt.filter();});
                 });
     }
 }
