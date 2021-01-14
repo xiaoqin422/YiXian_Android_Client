@@ -4,7 +4,7 @@ import androidx.room.Embedded;
 import androidx.room.Junction;
 import androidx.room.Relation;
 
-import com.xianyu.yixian_client.Model.Room.Entity.Repository;
+import com.xianyu.yixian_client.Model.Room.Entity.CardRepository;
 import com.xianyu.yixian_client.Model.Room.Entity.SkillCard;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 
@@ -28,7 +28,7 @@ public class UserWithSkillCard {
     @Relation(
             parentColumn = "user_id",
             entityColumn = "skillcard_id",
-            associateBy = @Junction(Repository.class)
+            associateBy = @Junction(CardRepository.class)
     )
     public List<SkillCard> skillCards;
     public UserWithSkillCard(){

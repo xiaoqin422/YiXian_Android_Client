@@ -2,15 +2,15 @@ package com.xianyu.yixian_client.PersonalInformation.Fragment;
 
 import androidx.lifecycle.ViewModel;
 
-import com.xianyu.yixian_client.Model.Repository.RepositoryFactory;
+import com.xianyu.yixian_client.Model.Repository.Repository;
 
 import javax.inject.Inject;
 
 public class PersonalInformationViewModel extends ViewModel {
-    public RepositoryFactory repositoryFactory;
+    public Repository repository;
     @Inject
-    public PersonalInformationViewModel(RepositoryFactory repositoryFactory){
-        this.repositoryFactory = repositoryFactory;
+    public PersonalInformationViewModel(Repository repository){
+        this.repository = repository;
     }
 
 }

@@ -23,14 +23,14 @@
         android:id="@+id/nickName"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="@id/head_image"
         app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintVertical_weight="1"
         app:layout_constraintLeft_toRightOf="@id/head_image"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/head_image"
-        android:ems="10"
-        android:inputType="textPassword" />
+        app:layout_constraintVertical_weight="1" />
 
     <ImageView
         android:id="@+id/head_image"
@@ -38,12 +38,12 @@
         android:layout_height="0dp"
         android:layout_margin="10dp"
         android:src="@drawable/touxiang"
-        app:layout_constraintVertical_weight="1"
-        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintBottom_toTopOf="@id/paper"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toLeftOf="@id/paper"
         app:layout_constraintRight_toLeftOf="@id/nickName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1" />
 
     <LinearLayout
         android:id="@+id/select_group_button"
@@ -67,20 +67,20 @@
 
         <Button
             android:id="@+id/button5"
-            android:onClick="history_Click"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:fontFamily="@font/ziti"
+            android:onClick="history_Click"
             android:text="战斗记录"
             android:textColor="#A57D04"
             android:textSize="30dp" />
 
         <Button
             android:id="@+id/button7"
-            android:onClick="information_Click"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:fontFamily="@font/ziti"
+            android:onClick="information_Click"
             android:text="仙域大陆"
             android:textColor="#A57D04"
             android:textSize="30dp" />

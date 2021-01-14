@@ -9,7 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textview.MaterialTextView;
+import com.xianyu.yixian_client.BattleRepository.BattleRepositoryViewModel;
+import com.xianyu.yixian_client.Model.Hilt.ViewModel_Provider;
 import com.xianyu.yixian_client.Model.Room.Entity.CardGroup;
+import com.xianyu.yixian_client.Model.Room.Entity.SkillCard;
 import com.xianyu.yixian_client.R;
 
 import java.util.ArrayList;
@@ -26,7 +29,7 @@ public class GroupAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return groups.get(groupPosition).getRepository().size();
+        return groups.get(groupPosition).getCards_id().size();
     }
 
     @Override
@@ -36,22 +39,22 @@ public class GroupAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return groups.get(groupPosition).getRepository().get(childPosition);
+        return groups.get(groupPosition).getCards().get(childPosition);
     }
 
     @Override
     public long getGroupId(int groupPosition) {
-        return groups.get(groupPosition).getId();
+        return groupPosition;
     }
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
-        return groups.get(groupPosition).getRepository().get(childPosition).getId();
+        return groups.get(groupPosition).getCards_id().get(childPosition);
     }
 
     @Override
     public boolean hasStableIds() {
-        return true;
+        return false;
     }
 
     @Override
@@ -71,6 +74,7 @@ public class GroupAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+        SkillCard child = groups.get(groupPosition).getCards().get(childPosition);
         GroupChildrenViewHolder groupChildrenViewHolder;
         if(convertView == null){
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.battlerepositorygroupshow_item,parent,false);
@@ -80,7 +84,7 @@ public class GroupAdapter extends BaseExpandableListAdapter {
         else {
             groupChildrenViewHolder = (GroupChildrenViewHolder)convertView.getTag();
         }
-        groupChildrenViewHolder.name_text.setText(groups.get(groupPosition).getRepository().get(childPosition).getName());
+        groupChildrenViewHolder.name_text.setText(child.getName());
         return convertView;
     }
 

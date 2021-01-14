@@ -36,9 +36,12 @@ public interface SkillCardDao {
     @Delete
     public void delete(SkillCard... skillCards);
 
-    @Query("SELECT * FROM skillcard WHERE name = :name")
-    public Single<SkillCard> query(String name);
+    @Query("SELECT * FROM skillcard WHERE author_id = :user_id")
+    public Single<List<SkillCard>> queryByAuthorId(long user_id);
+
+    @Query("SELECT * FROM skillcard WHERE id = :id")
+    public Single<SkillCard> queryById(long id);
 
     @Query("SELECT * FROM skillcard")
-    public Single<List<SkillCard>> query();
+    public Single<List<SkillCard>> queryAllSkillCards();
 }

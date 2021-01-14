@@ -56,6 +56,7 @@ public class SkillCardAdapt extends RecyclerView.Adapter<SkillCardAdapt.ViewHold
         holder.probability_text.setText(String.format(Locale.CHINESE,"%d",skillCard.getProbability()));
         holder.maxEnemy_text.setText(String.format(Locale.CHINESE,"%d",skillCard.getMax_enemy()));
         holder.maxAuxiliary_text.setText(String.format(Locale.CHINESE,"%d",skillCard.getMax_auxiliary()));
+        holder.bottom_layout.setAdapter(new BuffAdapt(skillCard.getBuffs()));
     }
 
     @Override
@@ -100,6 +101,7 @@ public class SkillCardAdapt extends RecyclerView.Adapter<SkillCardAdapt.ViewHold
         MaterialTextView probability_text;
         MaterialTextView maxEnemy_text;
         MaterialTextView maxAuxiliary_text;
+        RecyclerView bottom_layout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name_text = itemView.findViewById(R.id.name_text);
@@ -116,6 +118,7 @@ public class SkillCardAdapt extends RecyclerView.Adapter<SkillCardAdapt.ViewHold
             probability_text = itemView.findViewById(R.id.probability_text);
             maxEnemy_text = itemView.findViewById(R.id.max_enemy_text);
             maxAuxiliary_text = itemView.findViewById(R.id.max_auxiliary_text);
+            bottom_layout = itemView.findViewById(R.id.bottom_layout);
         }
     }
 }

@@ -1,13 +1,15 @@
 package com.xianyu.yixian_client.Model.Room.Entity;
 
 import androidx.annotation.NonNull;
-import androidx.room.Embedded;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+import com.xianyu.yixian_client.Model.Room.Convert.EnumConvert;
+import com.xianyu.yixian_client.Model.Room.Convert.GroupConvert;
+import com.xianyu.yixian_client.Model.Room.Convert.HistoryConvert;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @ProjectName: YiXian_Client
@@ -24,15 +26,7 @@ import java.util.List;
 @Entity(tableName = "user")
 public class User
 {
-    public ArrayList<SkillCard> getRepository() {
-        return repository;
-    }
-
-    public void setRepository(ArrayList<SkillCard> repository) {
-        this.repository = repository;
-    }
-
-    public enum State { Leisure, Ready, Queue, Gaming };
+    public enum State { Leisure, Ready, Queue, Gaming , Offline};
     @PrimaryKey
     private long id;
     private String userName;
@@ -44,18 +38,26 @@ public class User
     private String information;
     private int battle_Count;//战斗场次
     private int exp;//经验
-    private int balances;//金钱
     private int lv = 1;//等级
     private String title = "炼气";//称号
-    @Ignore
-    private State active = State.Leisure;//玩家当前游戏状态
+    @TypeConverters(EnumConvert.class)
+    private Enum<State> active = State.Offline;//玩家当前游戏状态
     private int kills;//击杀数
     private int deaths;//死亡数
     private long registration_date;//注册时间
-    @Ignore
-    ArrayList<CardGroup> battle_Repository = new ArrayList<>();
-    @Ignore
-    ArrayList<SkillCard> repository = new ArrayList<>();
+    @TypeConverters(GroupConvert.class)
+    ArrayList<CardGroup> cardGroups = new ArrayList<>();
+    @TypeConverters(HistoryConvert.class)
+    ArrayList<History> history = new ArrayList<>();
+
+    public ArrayList<History> getHistory() {
+        return history;
+    }
+
+    public void setHistory(ArrayList<History> history) {
+        this.history = history;
+    }
+
     public User(){
 
     }
@@ -71,7 +73,6 @@ public class User
                 ", information='" + information + '\'' +
                 ", battle_Count=" + battle_Count +
                 ", exp=" + exp +
-                ", balances=" + balances +
                 ", lv=" + lv +
                 ", title='" + title + '\'' +
                 ", active=" + active +
@@ -154,13 +155,6 @@ public class User
         this.exp = exp;
     }
 
-    public int getBalances() {
-        return balances;
-    }
-
-    public void setBalances(int balances) {
-        this.balances = balances;
-    }
 
     public int getLv() {
         return lv;
@@ -178,11 +172,11 @@ public class User
         this.title = title;
     }
 
-    public State getActive() {
+    public Enum<State> getActive() {
         return active;
     }
 
-    public void setActive(State active) {
+    public void setActive(Enum<State> active) {
         this.active = active;
     }
 
@@ -217,11 +211,11 @@ public class User
         this.registration_date = registration_date;
     }
 
-    public ArrayList<CardGroup> getBattle_Repository() {
-        return battle_Repository;
+    public ArrayList<CardGroup> getCardGroups() {
+        return cardGroups;
     }
 
-    public void setBattle_Repository(ArrayList<CardGroup> battle_Repository) {
-        this.battle_Repository = battle_Repository;
+    public void setCardGroups(ArrayList<CardGroup> cardGroups) {
+        this.cardGroups = cardGroups;
     }
 }

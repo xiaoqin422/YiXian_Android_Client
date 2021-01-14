@@ -3,7 +3,11 @@ package com.xianyu.yixian_client;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.Gson;
+import com.xianyu.yixian_client.Model.Room.Entity.CardGroup;
+import com.xianyu.yixian_client.Model.Room.Entity.SkillCard;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
+
+import java.util.ArrayList;
 
 /**
  * @ProjectName: YiXian
@@ -19,5 +23,6 @@ import com.xianyu.yixian_client.Model.Room.Entity.User;
  */
 public class Core {
     public static MutableLiveData<User> liveUser = new MutableLiveData<User>();
+    public static MutableLiveData<ArrayList<SkillCard>> liveSkillcards = new MutableLiveData<>();
     public static Gson gson;
 }
