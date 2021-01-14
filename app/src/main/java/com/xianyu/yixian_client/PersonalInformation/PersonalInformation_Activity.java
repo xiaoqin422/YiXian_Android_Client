@@ -16,6 +16,7 @@ import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 @AndroidEntryPoint
@@ -32,14 +33,12 @@ public class PersonalInformation_Activity extends AppCompatActivity {
         viewModel.repository.queryUserById(123456)
                 .subscribeOn(Schedulers.io())//查询数据时的线程
                 .observeOn(AndroidSchedulers.mainThread())//数据查找完毕的线程
-                .subscribe(users -> {
-                    if(users.size()>0){
-                        Core.liveUser.setValue(users.get(0));
-                        //fragment绑定初始化
-                        paper = findViewById(R.id.paper);
-                        paper.setPageTransformer(new DepthPageTransformer());
-                        paper.setAdapter(new PersonalInformation_Fragment_Adapter(this,viewModel));
-                    }
+                .subscribe(user -> {
+                    Core.liveUser.setValue(user);
+                    //fragment绑定初始化
+                    paper = findViewById(R.id.paper);
+                    paper.setPageTransformer(new DepthPageTransformer());
+                    paper.setAdapter(new PersonalInformation_Fragment_Adapter(this, viewModel));
                 });
     }
 

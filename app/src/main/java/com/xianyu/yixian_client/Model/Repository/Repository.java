@@ -60,7 +60,7 @@ public class Repository implements  ILocalRepository{
     }
     @Override
     public Single<List<User>> queryAllUsers() {
-        return local.queryUsers();
+        return local.queryAllUsers();
     }
 
     @Override
@@ -73,10 +73,14 @@ public class Repository implements  ILocalRepository{
     }
 
     @Override
-    public Single<List<User>> queryUserById(long id) {
-        return null;
+    public Single<User> queryUserByUserName(String userName) {
+        return local.queryUserByUserName(userName);
     }
 
+    @Override
+    public Single<User> queryUserById(long id) {
+        return local.queryUserById(id);
+    }
 
 
     @Override

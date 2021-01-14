@@ -30,10 +30,10 @@ public class Friend_Adapt extends RecyclerView.Adapter<Friend_Adapt.ViewHolder> 
     public Friend_Adapt(ArrayList<User> list){
         origin_data = list;
         filter_data = new ArrayList<User>(list);
-
     }
-    public void sortData(ArrayList<User> list){
-        filter_data = new ArrayList<User>(list);
+    public void refreshData(ArrayList<User> list){
+        origin_data = list;
+        filter_data = new ArrayList<>(list);
         notifyDataSetChanged();
     }
     @Override

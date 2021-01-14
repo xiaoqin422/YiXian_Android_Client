@@ -71,11 +71,9 @@ public class MainActivity extends AppCompatActivity {
         viewModel.repository.queryUserById(123456)
                 .subscribeOn(Schedulers.io())//查询数据时的线程
                 .observeOn(AndroidSchedulers.mainThread())//数据查找完毕的线程
-                .subscribe(users -> {
-                    if(users.size()>0){
-                        Core.liveUser.setValue(users.get(0));
-                        text1.setText(Integer.toString(Core.liveUser.getValue().getExp()));
-                    }
+                .subscribe(user -> {
+                    Core.liveUser.setValue(user);
+                    text1.setText(Integer.toString(Core.liveUser.getValue().getExp()));
                 });
 
     }
