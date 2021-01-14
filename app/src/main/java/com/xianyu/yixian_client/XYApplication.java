@@ -154,7 +154,7 @@ public class XYApplication extends Application {
             Thread.sleep(100);
             date = new Date();
             user.setId(date.getTime());
-            user.setNickName("用户" + random.nextInt());
+            user.setNickName("用户" + random.nextInt(30));
             user.setMoney(random.nextInt(1000));
             user.setExp(random.nextInt(200));
             user.setBattle_Count(random.nextInt(100));
@@ -168,7 +168,6 @@ public class XYApplication extends Application {
             Thread.sleep(500);
             repository.insertFriend(friend);
         }
-
     }
     public String getRandomChineseString(int n)  {
         StringBuilder stringBuilder = new StringBuilder();

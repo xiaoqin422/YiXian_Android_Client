@@ -14,8 +14,10 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.xianyu.yixian_client.BattleRepository.Adapt.GroupAdapter;
 import com.xianyu.yixian_client.BattleRepository.Adapt.SkillCardAdapt;
 import com.xianyu.yixian_client.Core;
+import com.xianyu.yixian_client.Login.Fragment.Bind.DepthPageTransformer;
 import com.xianyu.yixian_client.Model.Room.Entity.CardGroup;
 import com.xianyu.yixian_client.Model.Room.Entity.SkillCard;
+import com.xianyu.yixian_client.PersonalInformation.Fragment.Bind.PersonalInformation_Fragment_Adapter;
 import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.BattlerepositoryActivityBinding;
 
@@ -47,10 +49,14 @@ public class BattleRepositoryActivity extends AppCompatActivity {
     private void init() {
         ExpandableListView expandableListView;
         expandableListView = binding.getRoot().findViewById(R.id.group_layout);
-        GroupAdapter groupAdapter = new GroupAdapter(Core.liveUser.getValue().getCardGroups());
-        expandableListView.setAdapter(groupAdapter);
-
-
+        viewModel.repository.queryUserById(123456)
+                .subscribeOn(Schedulers.io())//查询数据时的线程
+                .observeOn(AndroidSchedulers.mainThread())//数据查找完毕的线程
+                .subscribe(users -> {
+                    //fragment绑定初始化
+                    GroupAdapter groupAdapter = new GroupAdapter(Core.liveUser.getValue().getCardGroups());
+                    expandableListView.setAdapter(groupAdapter);
+                });
         for (CardGroup cardGroup : Core.liveUser.getValue().getCardGroups()){
             for(Long id : cardGroup.getCards_id()){
                 viewModel.repository.querySkillCardById(id)
