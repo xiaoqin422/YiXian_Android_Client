@@ -11,38 +11,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.6"
-        android:background="@drawable/friendsystem_bg"/>
+        android:background="@drawable/repositorycard_bg"/>
 
     <Button
         android:id="@+id/soloGame_button"
         android:layout_width="0dp"
-        android:layout_height="96dp"
-        android:layout_margin="10dp"
+        android:layout_height="180dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="10dp"
         android:text="单挑模式"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintRight_toLeftOf="@id/teamGame_button"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintRight_toLeftOf="@id/teamGame_button"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/teamGame_button"
         android:layout_width="0dp"
-        android:layout_height="96dp"
-        android:text="团队模式"
+        android:layout_height="180dp"
         android:layout_margin="10dp"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="团队模式"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintLeft_toRightOf="@id/soloGame_button"
-        app:layout_constraintRight_toLeftOf="@id/existenceGame_button" />
+        app:layout_constraintRight_toLeftOf="@id/existenceGame_button"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/existenceGame_button"
         android:layout_width="0dp"
-        android:layout_height="96dp"
+        android:layout_height="180dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="80dp"
         android:text="生存模式"
-        android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_weight="2"
         app:layout_constraintLeft_toRightOf="@id/teamGame_button"
@@ -55,7 +57,7 @@
         android:layout_height="64dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="36dp"
-        android:text="Button"
+        android:text="@string/back"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
