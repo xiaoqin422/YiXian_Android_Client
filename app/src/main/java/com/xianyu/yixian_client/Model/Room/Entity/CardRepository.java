@@ -15,7 +15,7 @@ import androidx.room.ForeignKey;
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
-@Entity(tableName = "repository",
+@Entity(tableName = "card_repository",
         primaryKeys = {"user_id","skillcard_id"},
         foreignKeys = {
                 @ForeignKey(entity = User.class, parentColumns = "id",
@@ -23,7 +23,7 @@ import androidx.room.ForeignKey;
                 @ForeignKey(entity = SkillCard.class, parentColumns = "id",
                         childColumns = "skillcard_id", onDelete = ForeignKey.CASCADE,onUpdate = ForeignKey.CASCADE)}
         )
-public class Repository {
+public class CardRepository {
     long user_id;
     long skillcard_id;
     String solution;
@@ -52,7 +52,7 @@ public class Repository {
         this.solution = solution;
     }
 
-    public Repository(){
+    public CardRepository(){
 
     }
 }

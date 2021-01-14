@@ -1,11 +1,13 @@
 package com.xianyu.yixian_client.Model.Room.Entity;
 
-import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
+import com.xianyu.yixian_client.Model.Repository.Repository;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,33 +22,28 @@ import java.util.List;
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
-@Entity(tableName = "cardgroup",
-            foreignKeys = {
-                @ForeignKey(entity = User.class,parentColumns = {"id"},childColumns = {"owner_id"},onDelete = ForeignKey.CASCADE)
-            }
-        )
+
 public class CardGroup {
-    @PrimaryKey(autoGenerate = true)
-    long id;
-    long owner_id;
     String name;
+    @TypeConverters(ArrayList.class)
+    ArrayList<Long> cards_id = new ArrayList<>();
     @Ignore
-    List<SkillCard> repository;
+    ArrayList<SkillCard> cards  = new ArrayList<>();
 
-    public long getId() {
-        return id;
+    public ArrayList<Long> getCards_id() {
+        return cards_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setCards_id(ArrayList<Long> cards_id) {
+        this.cards_id = cards_id;
     }
 
-    public long getOwner_id() {
-        return owner_id;
+    public ArrayList<SkillCard> getCards() {
+        return cards;
     }
 
-    public void setOwner_id(long owner_id) {
-        this.owner_id = owner_id;
+    public void setCards(ArrayList<SkillCard> cards) {
+        this.cards = cards;
     }
 
     public String getName() {
@@ -57,21 +54,8 @@ public class CardGroup {
         this.name = name;
     }
 
-    public List<SkillCard> getRepository() {
-        return repository;
-    }
-
-    public void setRepository(List<SkillCard> repository) {
-        this.repository = repository;
-    }
     public CardGroup(){
 
     }
 
-    public CardGroup(long id, long owner_id, String name, List<SkillCard> repository) {
-        this.id = id;
-        this.owner_id = owner_id;
-        this.name = name;
-        this.repository = repository;
-    }
 }

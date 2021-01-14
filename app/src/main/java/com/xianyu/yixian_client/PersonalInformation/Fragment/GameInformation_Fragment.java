@@ -1,24 +1,14 @@
 package com.xianyu.yixian_client.PersonalInformation.Fragment;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 
-import com.google.android.material.textfield.TextInputEditText;
-import com.xianyu.yixian_client.Core;
-import com.xianyu.yixian_client.Login.LoginViewModel;
-import com.xianyu.yixian_client.Model.Room.Entity.User;
-import com.xianyu.yixian_client.R;
-import com.xianyu.yixian_client.databinding.ForgetFragmentBinding;
+import com.xianyu.yixian_client.PersonalInformation.PersonalInformationViewModel;
 import com.xianyu.yixian_client.databinding.PersonalInformationGameInformationFragmentBinding;
-
-import javax.inject.Inject;
 
 /**
  * @ProjectName: YiXian_Client

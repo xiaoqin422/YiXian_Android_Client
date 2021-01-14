@@ -5,9 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.xianyu.yixian_client.Login.LoginViewModel;
 import com.xianyu.yixian_client.PersonalInformation.Fragment.GameInformation_Fragment;
-import com.xianyu.yixian_client.PersonalInformation.Fragment.PersonalInformationViewModel;
+import com.xianyu.yixian_client.PersonalInformation.PersonalInformationViewModel;
 import com.xianyu.yixian_client.PersonalInformation.Fragment.Personal_Fragment;
 import com.xianyu.yixian_client.PersonalInformation.Fragment.History_Fragment;
 

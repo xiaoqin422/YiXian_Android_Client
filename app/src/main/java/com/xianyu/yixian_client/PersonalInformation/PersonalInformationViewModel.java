@@ -1,4 +1,4 @@
-package com.xianyu.yixian_client.BattleRepository;
+package com.xianyu.yixian_client.PersonalInformation;
 
 import androidx.lifecycle.ViewModel;
 
@@ -6,12 +6,10 @@ import com.xianyu.yixian_client.Model.Repository.Repository;
 
 import javax.inject.Inject;
 
-import dagger.hilt.android.scopes.ActivityScoped;
-
-public class BattleRepositoryViewModel extends ViewModel {
+public class PersonalInformationViewModel extends ViewModel {
     public Repository repository;
     @Inject
-    public BattleRepositoryViewModel(Repository repository){
+    public PersonalInformationViewModel(Repository repository){
         this.repository = repository;
     }
 

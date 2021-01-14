@@ -1,34 +1,20 @@
 package com.xianyu.yixian_client.PersonalInformation.Fragment;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.xianyu.yixian_client.Core;
-import com.xianyu.yixian_client.Login.LoginViewModel;
-import com.xianyu.yixian_client.Model.Room.Entity.History;
-import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.PersonalInformation.Fragment.Adapt.HistoryAdapt;
+import com.xianyu.yixian_client.PersonalInformation.PersonalInformationViewModel;
 import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.PersonalInformationHistoryFragmentBinding;
-import com.xianyu.yixian_client.databinding.RegisterFragmentBinding;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import io.reactivex.Scheduler;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * @ProjectName: YiXian_Client
@@ -56,13 +42,8 @@ public class History_Fragment extends Fragment  {
 
     private void init() {
         RecyclerView recyclerView = binding.getRoot().findViewById(R.id.history_list);
-        viewModel.repositoryFactory.queryHistory(12345)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(histories -> {
-                    HistoryAdapt adapt = new HistoryAdapt(histories);
-                    recyclerView.setAdapter(adapt);
-                });
+        HistoryAdapt historyAdapt = new HistoryAdapt(Core.liveUser.getValue().getHistory());
+        recyclerView.setAdapter(historyAdapt);
     }
 
     public History_Fragment(PersonalInformationViewModel viewModel){

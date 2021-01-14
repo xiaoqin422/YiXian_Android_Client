@@ -1,14 +1,11 @@
 package com.xianyu.yixian_client.Model.Room.Entity;
 
-import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
-import com.xianyu.yixian_client.Model.Enums;
+import com.xianyu.yixian_client.Model.Room.Convert.BuffConvert;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
@@ -44,7 +41,7 @@ public class SkillCard {
     long update;//卡牌最新版本-
     int max_enemy;//最大锁定敌人数 魂命
     int max_auxiliary;//最大锁定友军数 灵命
-    @Ignore
+    @TypeConverters(BuffConvert.class)
     ArrayList<Buff> buffs = new ArrayList<>();
     public SkillCard(){
 

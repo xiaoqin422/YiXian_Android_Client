@@ -1,22 +1,19 @@
 package com.xianyu.yixian_client.PersonalInformation.Fragment;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.xianyu.yixian_client.Core;
-import com.xianyu.yixian_client.Login.LoginViewModel;
-import com.xianyu.yixian_client.Model.Room.Entity.User;
+import com.xianyu.yixian_client.PersonalInformation.PersonalInformationViewModel;
 import com.xianyu.yixian_client.R;
-import com.xianyu.yixian_client.databinding.LoginFragmentBinding;
 import com.xianyu.yixian_client.databinding.PersonalInformationPersonalFragmentBinding;
+
+import org.w3c.dom.Text;
 
 /**
  * @ProjectName: YiXian_Client
@@ -37,8 +34,15 @@ public class Personal_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = PersonalInformationPersonalFragmentBinding.inflate(inflater,container,false);
+        init();
         return binding.getRoot();
     }
+
+    private void init() {
+        TextView textView = binding.getRoot().findViewById(R.id.kills_text);
+        textView.setText(Core.liveUser.getValue().getKills());
+    }
+
     public Personal_Fragment(PersonalInformationViewModel viewModel){
         this.viewModel = viewModel;
     }

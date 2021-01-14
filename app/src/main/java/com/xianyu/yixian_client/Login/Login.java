@@ -106,30 +106,6 @@ public class Login extends AppCompatActivity {
             ).attach();
             paper.setOffscreenPageLimit(3);
             tab.selectTab(tab.getTabAt(1));
-            disposable.add(viewModel.query_Users()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(users -> {
-                        if(users.isEmpty()){
-                            User user = new User();
-                            user.setUserName("落花无痕浅流淌");
-                            user.setInformation("相思请放下,再醒来时折花.");
-                            Core.liveUser.setValue(user);
-                            Log.i(Tag.Room, "创建新用户\n"+Core.liveUser.toString());
-                        }
-                        else {
-                            Core.liveUser.setValue(users.get(0));
-                            Log.i(Tag.Room,"查询成功\n"+Core.liveUser.toString());
-                            if(users.size()>=10){
-                                for (User item:users) {
-                                    viewModel.deleteUser(item);
-                                }
-                            }
-                        }
-                    }, throwable -> {
-                        Log.e(Tag.Room, "获取异常");
-                    })
-            );
         });
     }
     @Override
@@ -148,7 +124,7 @@ public class Login extends AppCompatActivity {
         if(Core.liveUser.getValue().getPasswords().isEmpty() || Core.liveUser.getValue().getUserName().isEmpty()){
             MessageDialog.Error_Dialog(this,"登录失败","内容不能为空");
         }
-        else viewModel.ValidUser(Core.liveUser.getValue());
+
     }
 
     public void Register_Click() {
@@ -156,7 +132,7 @@ public class Login extends AppCompatActivity {
             MessageDialog.Error_Dialog(this,"注册失败","内容不能为空");
         }
         else if(Core.liveUser.getValue().getPasswords().equals(viewModel.surePassword.getValue())){
-            viewModel.RegisterUser(Core.liveUser.getValue());
+
         }
         else MessageDialog.Error_Dialog(this,"注册失败","重复密码与密码不一致");
     }
@@ -165,7 +141,7 @@ public class Login extends AppCompatActivity {
             MessageDialog.Error_Dialog(this,"找回失败","内容不能为空");
         }
         else if(!Core.liveUser.getValue().getPasswords().equals(viewModel.surePassword)){
-            viewModel.RegisterUser(Core.liveUser.getValue());
+
         }
     }
 }

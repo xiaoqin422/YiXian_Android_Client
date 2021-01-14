@@ -42,6 +42,7 @@
           android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
       <TextView
+          android:id="@+id/active_text"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:fontFamily="@font/mashanzheng"
@@ -68,17 +69,15 @@
 
   <Button
       android:id="@+id/button4"
-      android:layout_width="29dp"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_weight="1"
-
+      android:layout_marginRight="10dp"
       android:text="@string/personal_information" />
 
   <Button
-      android:id="@+id/button3"
-      android:layout_width="51dp"
+      android:id="@+id/deleteFriend_button"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_weight="1"
       android:text="@string/delete" />
 
 
