@@ -1,4 +1,4 @@
-package com.xianyu.yixian_client.PersonalInformation.Fragment;
+package com.xianyu.yixian_client.PersonalInformation;
 
 import androidx.lifecycle.ViewModel;
 

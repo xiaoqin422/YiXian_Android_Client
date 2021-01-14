@@ -14,7 +14,7 @@
                 android:layout_width="170dp"
                 android:layout_height="50dp"
                 android:fontFamily="@font/ziti"
-                android:text="战斗场次"
+                android:text="杀敌数"
                 android:textColor="#492D55"
                 android:textSize="20sp" />
 
@@ -23,7 +23,7 @@
                 android:layout_width="170dp"
                 android:layout_height="50dp"
                 android:fontFamily="@font/ziti"
-                android:text="回合场次"
+                android:text="战斗场次"
                 android:textColor="#492D55"
                 android:textSize="20sp" />
 
@@ -32,7 +32,7 @@
                 android:layout_width="170dp"
                 android:layout_height="50dp"
                 android:fontFamily="@font/ziti"
-                android:text="即时场次"
+                android:text="死亡数"
                 android:textColor="#492D55"
                 android:textSize="20sp" />
 
@@ -41,12 +41,12 @@
         <TableRow>
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/kills_text"
                 android:layout_width="170dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/ziti"
-                android:text="胜率"
+                android:text="数值"
                 android:textColor="#7C2C2C"
                 android:textSize="20sp" />
 

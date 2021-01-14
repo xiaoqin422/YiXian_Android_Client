@@ -8,6 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fontFamily="@font/ziti"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:text="TextView" />
+        android:textAppearance="@style/TextAppearance.YiXian.Headline4"
+        android:text="这是游戏介绍" />
 </androidx.constraintlayout.widget.ConstraintLayout>

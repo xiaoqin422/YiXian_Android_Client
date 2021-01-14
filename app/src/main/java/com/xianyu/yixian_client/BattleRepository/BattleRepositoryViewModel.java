@@ -8,9 +8,7 @@ import javax.inject.Inject;
 
 import dagger.hilt.android.scopes.ActivityScoped;
 
-@ActivityScoped
 public class BattleRepositoryViewModel extends ViewModel {
-
     public Repository repository;
     @Inject
     public BattleRepositoryViewModel(Repository repository){

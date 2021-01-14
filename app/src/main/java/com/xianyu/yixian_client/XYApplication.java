@@ -57,7 +57,6 @@ public class XYApplication extends Application {
         CardGroup cardGroup;
         Date date = new Date();
         User owner = new User();
-        Core.liveUser.setValue(owner);
         owner.setNickName("涯丶");
         owner.setMoney(1234);
         owner.setExp(12);
@@ -65,13 +64,15 @@ public class XYApplication extends Application {
         owner.setLv(2);
         owner.setUserName("839336369");
         owner.setActive(User.State.Leisure);
-        owner.setId(date.getTime());
+        owner.setId(123456);
         History history;
         for(int i = 0;i<5;i++){
             history = new History(random.nextInt(20),true);
+            owner.getHistory().add(history);
         }
         for(int i = 0;i<5;i++){
             history = new History(random.nextInt(20),false);
+            owner.getHistory().add(history);
         }
         SkillCard skillCard;
         Buff buff;

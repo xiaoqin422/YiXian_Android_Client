@@ -49,6 +49,8 @@ public class BattleRepositoryActivity extends AppCompatActivity {
         expandableListView = binding.getRoot().findViewById(R.id.group_layout);
         GroupAdapter groupAdapter = new GroupAdapter(Core.liveUser.getValue().getCardGroups());
         expandableListView.setAdapter(groupAdapter);
+
+
         for (CardGroup cardGroup : Core.liveUser.getValue().getCardGroups()){
             for(Long id : cardGroup.getCards_id()){
                 viewModel.repository.querySkillCardById(id)

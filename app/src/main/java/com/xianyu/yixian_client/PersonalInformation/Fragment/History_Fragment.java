@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.xianyu.yixian_client.Core;
 import com.xianyu.yixian_client.PersonalInformation.Fragment.Adapt.HistoryAdapt;
+import com.xianyu.yixian_client.PersonalInformation.PersonalInformationViewModel;
 import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.PersonalInformationHistoryFragmentBinding;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * @ProjectName: YiXian_Client
@@ -42,7 +42,8 @@ public class History_Fragment extends Fragment  {
 
     private void init() {
         RecyclerView recyclerView = binding.getRoot().findViewById(R.id.history_list);
-
+        HistoryAdapt historyAdapt = new HistoryAdapt(Core.liveUser.getValue().getHistory());
+        recyclerView.setAdapter(historyAdapt);
     }
 
     public History_Fragment(PersonalInformationViewModel viewModel){
