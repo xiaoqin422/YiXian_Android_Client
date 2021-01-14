@@ -19,25 +19,13 @@ import com.xianyu.yixian_client.Model.Enums;
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
-@Entity(tableName = "buff")
 public class Buff {
     public enum Category { Freeze };
-    @PrimaryKey
-    long id;//状态ID
     String name;//状态名称
     int duration_Immediate;//效果持续时长
     int duration_Round;//效果持续回合
     int power;//能力
-    @Ignore
     Category category;//类型
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

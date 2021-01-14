@@ -69,7 +69,7 @@ public class Friend_Adapt extends RecyclerView.Adapter<Friend_Adapt.ViewHolder> 
             friends.sort((o1, o2) -> o1.getLv() - o2.getLv());
         }
         if(bluePrint.isActive()){
-            friends.sort((o1, o2) -> o1.getActive().compareTo(o2.getActive()));
+            friends.sort((o1, o2) -> o1.getActive().compareTo((User.State) o2.getActive()));
         }
         if(bluePrint.isReverse()){
             Collections.reverse(friends);

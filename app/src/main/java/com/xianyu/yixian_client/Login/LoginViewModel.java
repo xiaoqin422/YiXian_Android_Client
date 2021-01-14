@@ -3,7 +3,7 @@ package com.xianyu.yixian_client.Login;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.xianyu.yixian_client.Model.Repository.RepositoryFactory;
+import com.xianyu.yixian_client.Model.Repository.Repository;
 import com.xianyu.yixian_client.Model.Room.Entity.User;
 
 import java.util.List;
@@ -28,35 +28,10 @@ import io.reactivex.Single;
 public class LoginViewModel extends ViewModel {
     public MutableLiveData<String> verificationCode = new MutableLiveData<String>();
     public MutableLiveData<String> surePassword = new MutableLiveData<String>();
-
-    public RepositoryFactory repositoryFactory;
+    public Repository repository;
     @Inject
-    public LoginViewModel(RepositoryFactory repositoryFactory){
-        this.repositoryFactory = repositoryFactory;
-    }
-    public void insertUser(User user){
-        repositoryFactory.insertUser(user);
-    }
-    public void deleteUser(User user){
-        repositoryFactory.deleteUser(user);
-    }
-    public void updateUser(User user){
-        repositoryFactory.updateUser(user);
-    }
-    public void clearAllUser(User user){
-        repositoryFactory.updateUser(user);
-    }
-    public Single<List<User>> query_Users(){
-       return repositoryFactory.queryUsers();
-    }
-    public void ValidUser(User user){
-
-    }
-    public void RegisterUser(User user){
-
-    }
-    public void ChangeUser(User user){
-
+    public LoginViewModel(Repository repository){
+        this.repository = repository;
     }
 
 }

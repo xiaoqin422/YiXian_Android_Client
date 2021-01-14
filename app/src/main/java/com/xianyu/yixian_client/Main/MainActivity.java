@@ -15,10 +15,16 @@ import com.xianyu.yixian_client.Login.LoginService;
 import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.MainActivityBinding;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
     MainActivityBinding binding;
     MainViewModel mainViewModel;
-
+    @Inject
+    MainViewModel viewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +32,9 @@ public class MainActivity extends AppCompatActivity {
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         init();
-
     }
 
     private void init() {
-        mainViewModel = new MainViewModel();
         Intent intentOne = new Intent(this, LoginService.class);
         startService(intentOne);
 

@@ -1,5 +1,6 @@
 package com.xianyu.yixian_client.BattleRepository;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,10 +13,9 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.textfield.TextInputEditText;
 import com.xianyu.yixian_client.BattleRepository.Adapt.GroupAdapter;
 import com.xianyu.yixian_client.BattleRepository.Adapt.SkillCardAdapt;
-import com.xianyu.yixian_client.Model.Room.Entity.Buff;
+import com.xianyu.yixian_client.Core;
 import com.xianyu.yixian_client.Model.Room.Entity.CardGroup;
 import com.xianyu.yixian_client.Model.Room.Entity.SkillCard;
-import com.xianyu.yixian_client.Model.Room.Entity.User;
 import com.xianyu.yixian_client.R;
 import com.xianyu.yixian_client.databinding.BattlerepositoryActivityBinding;
 
@@ -25,6 +25,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 @AndroidEntryPoint
 public class BattleRepositoryActivity extends AppCompatActivity {
@@ -40,65 +43,61 @@ public class BattleRepositoryActivity extends AppCompatActivity {
         Init();
     }
 
+    @SuppressLint("CheckResult")
     private void Init() {
-        List<SkillCard> cards = new ArrayList();
-        Buff buff = new Buff();
-        SkillCard skillCard = new SkillCard();
-        buff.setName("冻结");
-        skillCard.getBuffs().add(buff);
-        buff = new Buff();
-        buff.setName("燃烧");
-        skillCard.getBuffs().add(buff);
-        skillCard.setName("气仙盾");
-        skillCard.setCure(true);
-        skillCard.setAttack(true);
-        skillCard.setMp(10);
-        cards.add(skillCard);
-        skillCard = new SkillCard();
-        skillCard.setName("气斩");
-        skillCard.setMp(10);
-        cards.add(skillCard);
-        User user = new User();
-        user.setId(1234);
-        user.getBattle_Repository().add(new CardGroup(1,user.getId(),"卡组1",cards));
-        user.getBattle_Repository().add(new CardGroup(2,user.getId(),"卡组2",cards));
-
         ExpandableListView expandableListView;
         expandableListView = binding.getRoot().findViewById(R.id.group_layout);
-        GroupAdapter groupAdapter = new GroupAdapter(user.getBattle_Repository());
+        GroupAdapter groupAdapter = new GroupAdapter(Core.liveUser.getValue().getCardGroups());
         expandableListView.setAdapter(groupAdapter);
-
-        RecyclerView recyclerView;
-        SkillCardAdapt cardAdapt = new SkillCardAdapt(cards);
-        recyclerView = binding.getRoot().findViewById(R.id.recycler_view);
-        recyclerView.setAdapter(cardAdapt);
-        TextInputEditText editText = findViewById(R.id.searchName_textInput);
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+        for (CardGroup cardGroup : Core.liveUser.getValue().getCardGroups()){
+            for(Long id : cardGroup.getCards_id()){
+                viewModel.repository.querySkillCardById(id)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(skillCard ->{ cardGroup.getCards().add(skillCard); });
             }
+        }
+        viewModel.repository.queryAllSkillCards()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<List<SkillCard>>() {
+                    @SuppressLint("CheckResult")
+                    @Override
+                    public void accept(List<SkillCard> skillCards) throws Exception {
+                        Core.liveSkillcards.setValue(new ArrayList<>(skillCards));
+                        RecyclerView recyclerView;
+                        SkillCardAdapt cardAdapt = new SkillCardAdapt(Core.liveSkillcards.getValue());
+                        recyclerView = binding.getRoot().findViewById(R.id.recycler_view);
+                        recyclerView.setAdapter(cardAdapt);
+                        TextInputEditText editText = findViewById(R.id.searchName_textInput);
+                        editText.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                cardAdapt.bluePrint.setName(s.toString());
-                cardAdapt.filter();
-            }
+                            }
 
-            @Override
-            public void afterTextChanged(Editable s) {
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                cardAdapt.bluePrint.setName(s.toString());
+                                cardAdapt.filter();
+                            }
 
-            }
-        });
-        Chip physics_chip = findViewById(R.id.physics_chip);
-        physics_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setPhysics(isChecked);cardAdapt.filter();});
-        Chip magic_chip = findViewById(R.id.magic_chip);
-        magic_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setMagic(isChecked);cardAdapt.filter();});
-        Chip cure_chip = findViewById(R.id.cure_chip);
-        cure_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setCure(isChecked);cardAdapt.filter();});
-        Chip attack_chip = findViewById(R.id.attack_chip);
-        attack_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setAttack(isChecked);cardAdapt.filter();});
-        Chip eternal_chip = findViewById(R.id.eternal_chip);
-        eternal_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setEternal(isChecked);cardAdapt.filter();});
+                            @Override
+                            public void afterTextChanged(Editable s) {
+
+                            }
+                        });
+                        Chip physics_chip = findViewById(R.id.physics_chip);
+                        physics_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setPhysics(isChecked);cardAdapt.filter();});
+                        Chip magic_chip = findViewById(R.id.magic_chip);
+                        magic_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setMagic(isChecked);cardAdapt.filter();});
+                        Chip cure_chip = findViewById(R.id.cure_chip);
+                        cure_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setCure(isChecked);cardAdapt.filter();});
+                        Chip attack_chip = findViewById(R.id.attack_chip);
+                        attack_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setAttack(isChecked);cardAdapt.filter();});
+                        Chip eternal_chip = findViewById(R.id.eternal_chip);
+                        eternal_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {cardAdapt.bluePrint.setEternal(isChecked);cardAdapt.filter();});
+                    }
+                });
     }
 }
