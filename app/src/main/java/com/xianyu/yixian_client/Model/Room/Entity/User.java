@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import com.xianyu.yixian_client.Model.Room.Convert.EnumConvert;
+import com.xianyu.yixian_client.Model.Room.Convert.ActiveConvert;
 import com.xianyu.yixian_client.Model.Room.Convert.GroupConvert;
 import com.xianyu.yixian_client.Model.Room.Convert.HistoryConvert;
 
@@ -40,7 +40,7 @@ public class User
     private int exp;//经验
     private int lv = 1;//等级
     private String title = "炼气";//称号
-    @TypeConverters(EnumConvert.class)
+    @TypeConverters(ActiveConvert.class)
     private Enum<State> active = State.Offline;//玩家当前游戏状态
     private int kills;//击杀数
     private int deaths;//死亡数
