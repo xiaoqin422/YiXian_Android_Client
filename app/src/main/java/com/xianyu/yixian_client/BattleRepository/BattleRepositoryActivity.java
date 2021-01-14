@@ -53,18 +53,17 @@ public class BattleRepositoryActivity extends AppCompatActivity {
                 .subscribeOn(Schedulers.io())//查询数据时的线程
                 .observeOn(AndroidSchedulers.mainThread())//数据查找完毕的线程
                 .subscribe(users -> {
-                    //fragment绑定初始化
-                    GroupAdapter groupAdapter = new GroupAdapter(Core.liveUser.getValue().getCardGroups());
+                    GroupAdapter groupAdapter = new GroupAdapter(users.getCardGroups());
                     expandableListView.setAdapter(groupAdapter);
+                    for (CardGroup cardGroup : users.getCardGroups()){
+                        for(Long id : cardGroup.getCards_id()){
+                            viewModel.repository.querySkillCardById(id)
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe(skillCard ->{ cardGroup.getCards().add(skillCard); groupAdapter.notifyDataSetChanged();});
+                        }
+                    }
                 });
-        for (CardGroup cardGroup : Core.liveUser.getValue().getCardGroups()){
-            for(Long id : cardGroup.getCards_id()){
-                viewModel.repository.querySkillCardById(id)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(skillCard ->{ cardGroup.getCards().add(skillCard); });
-            }
-        }
         viewModel.repository.queryAllSkillCards()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
